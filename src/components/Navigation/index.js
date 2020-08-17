@@ -240,9 +240,7 @@ const Navigation = (props) => {
       <Nav className={isActive ? 'nav--active' : null}>
         <NavItems>
           <NavItem>
-            <NavLink href="/" class="link">
-              Why Choose Us?
-            </NavLink>
+            <NavLink href="/">Why Choose Us?</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/">How We Can Help</NavLink>
