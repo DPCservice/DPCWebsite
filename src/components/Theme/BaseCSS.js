@@ -1,10 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const BaseCSS = createGlobalStyle`
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  :root {
+    --color-primary: #0DC5A0;
+    --color-secondary: #333235;
+    --height-headerDesktop: 122px;
+    --height-headerMobile: 70px;
+    --spacing: 117px;
+    --spacingMobile: 54px;
+    --spacingSmall: 80px;
+    --spacingSmallTablet: 60px;
+    --spacingSmallMobile: 40px;
+    --overlapHeight: -90px;
+    --overlapHeightMobile: -30px;
   }
 
   html {
@@ -16,6 +30,17 @@ export const BaseCSS = createGlobalStyle`
   body {
     background-color: #EFF1F3;
     color: #292828;
+    font-weight:500;
+    font-family: 'Mulish', sans-serif; ;
+    font-size:16px;
+    margin: 0;
+    position: relative;
+    line-height: 1.6;
+    @media screen and (max-width: 600px) {
+      font-size: 15px;
+      padding-top: var(--height-headerMobile);
+      line-height: 1.4;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -25,7 +50,7 @@ export const BaseCSS = createGlobalStyle`
   h2 {
     margin-top: 32px;
     margin-bottom: 16px;
-    padding-bottom: 8px
+    padding-bottom: 8px;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.13);
   }
 
@@ -58,4 +83,5 @@ export const BaseCSS = createGlobalStyle`
     margin-left: 8px;
     border-left: 4px solid rgba(0, 0, 0, 0.13)
   }
+  
 `;

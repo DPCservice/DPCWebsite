@@ -10,7 +10,7 @@ const seo = {
 const IndexPage = (props) => (
   <Site seo={seo} {...props}>
     <Container>
-      <Readme />
+      {/* <Readme /> */}
     </Container>
   </Site>
 );

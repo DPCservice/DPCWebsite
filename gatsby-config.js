@@ -11,6 +11,16 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Lato\:300,400,600,700`,
+          `Mulish\:300,400,600,700`
+        ],
+        display: 'swap'
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
