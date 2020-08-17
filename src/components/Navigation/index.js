@@ -38,7 +38,9 @@ const Wrapper = styled.div`
       opacity: 1;
       transition-delay: 0s;
       transform: none;
-    }
+    }}
+  @media screen and (max-width: 600px) {
+    padding: 0 20px;
   }
 `;
 

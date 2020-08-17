@@ -22,6 +22,11 @@ const MainHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 600px) {
+      height: var(--height-headerMobile);
+
+  }
 `
 
 const Site = ({ location, pageContext, path, seo, children }) => (
