@@ -41,6 +41,8 @@ const Wrapper = styled.div`
     }}
   @media screen and (max-width: 600px) {
     padding: 0 20px;
+
+    
   }
 `;
 
@@ -68,6 +70,11 @@ const Nav = styled.nav`
     ul {
       padding-bottom: 40px;
     }
+  }
+  @media screen and (max-width: 600px) {
+    padding: 30px 20px 0;
+    top: var(--height-headerMobile);
+    height: calc(100vh - var(--height-headerMobile));
   }
 `;
 
@@ -98,6 +105,7 @@ const NavItems = styled.ul`
     }
   }
   @media screen and (max-width: 600px) {
+    
     li:last-child a {
       height: 42px;
       line-height: 38px;
