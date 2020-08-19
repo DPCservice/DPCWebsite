@@ -6,11 +6,6 @@ import { Navigation } from '../Navigation';
 import { Theme } from '../Theme';
 import { Seo } from './Seo';
 
-const Main = styled.div`
-  margin: 32px 0;
-  min-height: calc(100vh - 56px - 64px - 97px);
-`;
-
 const MainHeader = styled.header`
     height: var(--height-headerDesktop);
     position: fixed;
@@ -35,7 +30,7 @@ const Site = ({ location, pageContext, path, seo, children }) => (
     <Seo location={location} pageContext={pageContext} seo={seo} />
     <Navigation path={path} />
     </MainHeader>
-    <Main>{children}</Main>
+    <main>{children}</main>
     <Footer />
   </Theme>
 );

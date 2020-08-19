@@ -28,14 +28,18 @@ export const BaseCSS = createGlobalStyle`
   }
 
   body {
-    background-color: #EFF1F3;
-    color: #292828;
-    font-weight:500;
     font-family: 'Mulish', sans-serif; ;
-    font-size:16px;
+    background: #fff;
+    font-weight: 400;
+    font-size: 16px;
     margin: 0;
+    color: var(--color-secondary);
     position: relative;
     line-height: 1.6;
+    padding-top: var(--height-headerDesktop);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
     @media screen and (max-width: 600px) {
       font-size: 15px;
       padding-top: var(--height-headerMobile);
@@ -43,15 +47,22 @@ export const BaseCSS = createGlobalStyle`
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h3, h4, h5, h6 {
     margin: 16px 0;
   }
 
-  h2 {
-    margin-top: 32px;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.13);
+  h1, h2 {
+    font-size: 60px;
+    line-height: 1.15;
+    letter-spacing: -.015em;
+    margin: 90px 0 54px;
+    @media screen and (max-width: 600px){
+      font-size: 34px;
+      margin: 30px 0 25px;
+    }
+  }
+  h1:first-child, h2:first-child {
+    margin-top: -17px;
   }
 
   p {
