@@ -47,8 +47,34 @@ export const BaseCSS = createGlobalStyle`
     }
   }
 
-  h3, h4, h5, h6 {
-    margin: 16px 0;
+  p, h1, h2, h3, h4, h5, h6, ul {
+    margin: 0;
+  }
+  h3:last-child, h4:last-child, h5:last-child, h6:last-child, p:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: 44px;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -.015em;
+    margin: 78px 0 30px;
+  }
+  h4 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -.015em;
+    margin: 75px 0 20px;
+ }
+
+  h5 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    margin: 55px 0 14px;
+    line-height: 1.3;
   }
 
   h1, h2 {
@@ -66,7 +92,10 @@ export const BaseCSS = createGlobalStyle`
   }
 
   p {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   a {

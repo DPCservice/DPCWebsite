@@ -59,6 +59,7 @@ const Column = styled.div`
 
   :first-child {
     margin-left: 80px;
+    max-width:600px;
     flex-basis: 41%;
     @media screen and (max-width: 1120px) {
       margin-left: 0;
@@ -213,7 +214,8 @@ const Hero = () => {
           <h1>cliche vice fashion axe deep v woke</h1>
           <p className="has-large-font-size">
             I'm baby poke portland wayfarers live-edge bushwick kickstarter four dollar toast gastropub seitan listicle
-            fingerstache. Deep v bushwick ramps{' '}
+            fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle
+            fingerstache.
           </p>
           <Buttons>
             <div className="button">

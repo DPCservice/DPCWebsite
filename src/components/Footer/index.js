@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../Container';
+import { GiTexas } from 'react-icons/gi';
 
 const Wrapper = styled('footer')`
   background: var(--color-secondary);
@@ -42,7 +43,7 @@ const Left = styled.p`
   }
 `;
 
-const Center = styled.p`
+const Center = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -53,6 +54,14 @@ const Center = styled.p`
   align-items: center;
   margin: 0;
   justify-content: center;
+
+  svg{
+    margin-right:8px;
+    @media screen and (max-width: 600px) {
+    height:24px;
+    width:24px
+  }
+  }
   @media screen and (max-width: 1044px) {
     position: static;
     transform: none;
@@ -109,7 +118,10 @@ const Footer = () => {
         <Left>
           <span>© {new Date().getFullYear()} Design Prototype Consult LLC</span>
         </Left>
-        <Center>Proudly located in Corpus Christi, Texas</Center>
+        <Center>
+          <GiTexas />
+          <div> Proudly located in Corpus Christi, Texas</div>
+        </Center>
         <Right>
           <li>
             <a href="" target="_blank">

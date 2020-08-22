@@ -1,19 +1,11 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const Container = styled('div')`
-  margin: 0 auto;
-  padding: 0 24px;
-  max-width: ${(p) => p.maxWidth}px;
   width: 100%;
+  max-width: ${props => props.wide ? '1600px':'1360px'};
+  padding: 0 60px;
+  margin: 0 auto;
+  box-sizing: border-box;
 `;
-
-Container.propTypes = {
-  maxWidth: PropTypes.number,
-};
-
-Container.defaultProps = {
-  maxWidth: 800,
-};
 
 export { Container };

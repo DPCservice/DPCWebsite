@@ -38,11 +38,10 @@ const Wrapper = styled.div`
       opacity: 1;
       transition-delay: 0s;
       transform: none;
-    }}
+    }
+  }
   @media screen and (max-width: 600px) {
     padding: 0 20px;
-
-    
   }
 `;
 
@@ -105,7 +104,6 @@ const NavItems = styled.ul`
     }
   }
   @media screen and (max-width: 600px) {
-    
     li:last-child a {
       height: 42px;
       line-height: 38px;
@@ -166,7 +164,7 @@ const Navbutton = styled.a`
   transition: 0.3s background, 0.3s color, 0.3s border, 0.3s opacity;
 
   :hover {
-    background: green;
+    background: var(--color-primary);
     color: white;
   }
 `;
