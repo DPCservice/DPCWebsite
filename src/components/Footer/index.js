@@ -56,11 +56,9 @@ const Center = styled.div`
   justify-content: center;
 
   svg{
+    height:32px;
+    width:32px;
     margin-right:8px;
-    @media screen and (max-width: 600px) {
-    height:24px;
-    width:24px
-  }
   }
   @media screen and (max-width: 1044px) {
     position: static;
