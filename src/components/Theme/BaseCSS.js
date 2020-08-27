@@ -70,7 +70,7 @@ export const BaseCSS = createGlobalStyle`
     margin: 75px 0 20px;
  }
 
- h3 {
+ h3,h4 {
   @media screen and (max-width: 600px) {
       font-size: 24px;
       margin: 30px 0 13px;

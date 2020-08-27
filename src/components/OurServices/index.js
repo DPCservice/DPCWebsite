@@ -98,6 +98,13 @@ const Inner = styled.div`
     margin: var(--spacingSmall) 0;
     margin-bottom: 0;
 
+    @media screen and (max-width: 400px) {
+      padding: 30px 20px !important;
+      :last-child {
+        margin-bottom: -10px;
+      }
+    }
+
     @media screen and (max-width: 1080px) {
       text-align: center;
       padding-left: 50px;
@@ -134,7 +141,7 @@ const BtnWrapper = styled.div`
   align-items: center;
   margin-bottom: 0;
 
-  @media screen and (max-width: 1080px){
+  @media screen and (max-width: 1080px) {
     justify-content: center;
     align-items: center;
   }
