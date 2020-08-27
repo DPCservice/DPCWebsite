@@ -60,13 +60,21 @@ export const BaseCSS = createGlobalStyle`
     font-weight: 700;
     letter-spacing: -.015em;
     margin: 78px 0 30px;
+  
   }
   h4 {
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.3;
     letter-spacing: -.015em;
     margin: 75px 0 20px;
+ }
+
+ h3 {
+  @media screen and (max-width: 600px) {
+      font-size: 24px;
+      margin: 30px 0 13px;
+  }
  }
 
   h5 {

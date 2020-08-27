@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 
-const Button = styled('button')`
-  padding: 4px 12px;
-  margin: 0;
-  background: none;
-  border: none;
-  border: 2px solid #663399;
-  border-radius: 2px;
-  color: #663399;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  line-height: 24px;
-  text-transform: uppercase;
-  transition: all ease-in-out 0.2s;
-  transition-property: color, background-color;
+const Button = styled('a')`
+    flex-shrink: 0;
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: 40px;
+    color: #fff;
+    display: inline-block;
+    padding: 0 30px;
+    height: 51px;
+    line-height: 49px;
+    font-weight: 600;
+    letter-spacing: -.036em;
+    font-size: inherit;
+    transition: .3s background,.3s color,.3s border,.3s opacity;
+    cursor: pointer;
 
   &:hover,
   &:focus {
     color: #fff;
-    background-color: #663399;
+    background-color: var(--color-secondary);
   }
 `;
 
