@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled('a')`
+const PrimaryButton = styled.a`
   flex-shrink: 0;
   text-decoration: none;
   background: var(--color-primary);
@@ -28,8 +28,5 @@ const Button = styled('a')`
   }
 `;
 
-Button.defaultProps = {
-  type: 'button',
-};
 
-export { Button };
+export { PrimaryButton };

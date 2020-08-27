@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../Container';
 import styled from 'styled-components';
-import { Button } from '../Button';
+import { PrimaryButton } from '../Button';
 
 const InnerWrapper = styled.div`
   margin-bottom: 0;
@@ -179,7 +179,7 @@ const OurServices = () => {
             <img src="_blank" alt="Illustration" />
             <h4>Get started with your free 30 minute design strategy call.</h4>
             <BtnWrapper>
-              <Button href="/">Book Now</Button>
+              <PrimaryButton href="/">Book Now</PrimaryButton>
             </BtnWrapper>
           </div>
         </Inner>
