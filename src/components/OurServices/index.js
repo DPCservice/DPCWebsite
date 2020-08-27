@@ -172,7 +172,7 @@ const OurServices = () => {
             <img src="_blank" alt="Illustration" />
             <h4>Get started with your free 30 minute design strategy call.</h4>
             <BtnWrapper>
-              <Button>Book Now</Button>
+              <Button href="/">Book Now</Button>
             </BtnWrapper>
           </div>
         </Inner>
