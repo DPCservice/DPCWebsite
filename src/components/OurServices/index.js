@@ -10,7 +10,7 @@ const InnerWrapper = styled.div`
   background: #f6f6f6;
   border-radius: 15px;
   position: relative;
-  margin: var(--spacingSmall) 0;
+  /* margin: var(--spacingSmall) 0; */
 
   @media screen and (max-width: 768px) {
     padding: var(--spacingSmallTablet);

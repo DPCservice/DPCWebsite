@@ -8,7 +8,9 @@ const Inner = styled.div`
   padding: 0 60px;
   margin: 0 auto;
   box-sizing: border-box;
+  z-index: 10;
 
+ 
   @media screen and (max-width: 600px) {
     padding: 0 20px;
   }
@@ -59,7 +61,7 @@ const Column = styled.div`
 
   :first-child {
     margin-left: 80px;
-    max-width:600px;
+    max-width: 600px;
     flex-basis: 41%;
     @media screen and (max-width: 1120px) {
       margin-left: 0;
@@ -112,10 +114,10 @@ const Buttons = styled.div`
   align-items: center;
 
   @media screen and (max-width: 600px) {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   :last-child {
     margin-bottom: 0;
@@ -188,23 +190,20 @@ const Buttons = styled.div`
       width: 34px;
       padding-left: 8px;
     }
-
-   
   }
 `;
 
 const Figure = styled.figure`
-    margin: 50px 0;
+  margin: 50px 0;
 
-    img {
+  img {
     display: block;
     max-width: 100%;
-    height:auto;
+    height: auto;
     border: 0;
     width: 1024px;
-    }
-
-`
+  }
+`;
 
 const Hero = () => {
   return (
@@ -214,8 +213,7 @@ const Hero = () => {
           <h1>cliche vice fashion axe deep v woke</h1>
           <p className="has-large-font-size">
             I'm baby poke portland wayfarers live-edge bushwick kickstarter four dollar toast gastropub seitan listicle
-            fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle
-            fingerstache.
+            fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle fingerstache.
           </p>
           <Buttons>
             <div className="button">
@@ -234,9 +232,7 @@ const Hero = () => {
           </Buttons>
         </Column>
         <Column>
-          <Figure>
-            
-          </Figure>
+          <Figure></Figure>
         </Column>
       </Columns>
     </Inner>
