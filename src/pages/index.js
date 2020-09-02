@@ -3,9 +3,11 @@ import { Container } from '../components/Container';
 import { Site } from '../components/Site';
 import { Hero } from '../components/Hero';
 import { OurServices } from '../components/OurServices';
-import sample from '../assets/Paper.mp4';
+// import sample from '../assets/Paper.mp4';
 import styled from 'styled-components';
 import { PhotoGallery } from '../components/Gallery';
+import { RichText } from 'prismic-reactjs';
+import { graphql } from 'gatsby';
 
 const seo = {
   title: 'Home',
@@ -45,24 +47,71 @@ const PageWrapper = styled.div`
   }
 `;
 
-const IndexPage = (props) => (
-  <Site seo={seo} {...props}>
-    <HeroWrapper>
-      {/* <video id="background-video" autoPlay loop muted preload='auto'>
+const IndexPage = (props) => {
+  console.log(props);
+
+  return (
+    <Site seo={seo} {...props}>
+      <HeroWrapper>
+        {/* <video id="background-video" autoPlay loop muted preload='auto'>
         <source src={sample} type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
-      <Hero />
-    </HeroWrapper>
-
-    <PageWrapper NoBottomPad NoTopPad>
-      <OurServices />
-    </PageWrapper>
-
-    <PageWrapper>
-      <PhotoGallery />
-    </PageWrapper>
-  </Site>
-);
+        <Hero
+          heroTitle={props.data.prismic.allHome_pages.edges[0].node.hero_title}
+          heroDescription={props.data.prismic.allHome_pages.edges[0].node.hero_title_description}
+          heroImg={props.data.prismic.allHome_pages.edges[0].node.hero_title_image}
+        />
+      </HeroWrapper>
+      <PageWrapper NoBottomPad NoTopPad>
+        <OurServices 
+        body ={props.data.prismic.allHome_pages.edges[0].node.body[0]}/>
+      </PageWrapper>
+      <PageWrapper>
+        <PhotoGallery />
+      </PageWrapper>
+    </Site>
+  );
+};
 
 export default IndexPage;
+
+export const query = graphql`
+  {
+    prismic {
+      allHome_pages {
+        edges {
+          node {
+            body {
+              ... on PRISMIC_Home_pageBodyService {
+                type
+                primary {
+                  service_section_header
+                  service_cta_phrase
+                  service_cta_image
+                }
+                fields {
+                  service_about
+                  service_illustration
+                  service_title
+                }
+              }
+              ... on PRISMIC_Home_pageBodyPhoto_galllery_ {
+                type
+                primary {
+                  gallery_title
+                }
+                fields {
+                  work_photos
+                }
+              }
+            }
+            hero_title
+            hero_title_image
+            hero_title_description
+          }
+        }
+      }
+    }
+  }
+`;

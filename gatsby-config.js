@@ -8,6 +8,12 @@ module.exports = {
     image: 'https://awesome-gatsby-starter.netlify.app/ok.png',
   },
   plugins: [
+    {
+      resolve: `@prismicio/gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: `dpcservices`,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {

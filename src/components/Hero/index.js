@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaArrowCircleRight } from 'react-icons/fa';
+import { RichText } from 'prismic-reactjs';
 
 const Inner = styled.div`
   width: 100%;
@@ -10,7 +11,6 @@ const Inner = styled.div`
   box-sizing: border-box;
   z-index: 10;
 
- 
   @media screen and (max-width: 600px) {
     padding: 0 20px;
   }
@@ -68,6 +68,9 @@ const Column = styled.div`
       width: 100% !important;
       margin-bottom: var(--spacingSmall);
     }
+    @media (min-width: 782px) {
+    flex-grow: 0;
+    }
     @media screen and (max-width: 600px) {
       margin-bottom: var(--spacingSmallMobile);
     }
@@ -100,7 +103,6 @@ const Column = styled.div`
       margin-top: -9px;
     }
 
-    p,
     .has-large-font-size {
       font-size: 17px;
       line-height: 1.3;
@@ -194,8 +196,6 @@ const Buttons = styled.div`
 `;
 
 const Figure = styled.figure`
-  margin: 50px 0;
-
   img {
     display: block;
     max-width: 100%;
@@ -205,16 +205,16 @@ const Figure = styled.figure`
   }
 `;
 
-const Hero = () => {
+const Hero = ({ heroTitle, heroDescription, heroImg }) => {
+  // console.log(props);
   return (
     <Inner>
       <Columns>
         <Column>
-          <h1>cliche vice fashion axe deep v woke</h1>
-          <p className="has-large-font-size">
-            I'm baby poke portland wayfarers live-edge bushwick kickstarter four dollar toast gastropub seitan listicle
-            fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle fingerstache.
-          </p>
+          <RichText render={heroTitle} />
+          <div className="has-large-font-size">
+            <RichText render={heroDescription} />
+          </div>
           <Buttons>
             <div className="button">
               <a href="/" className="wp-block-button__link">
@@ -232,7 +232,9 @@ const Hero = () => {
           </Buttons>
         </Column>
         <Column>
-          <Figure></Figure>
+          <Figure>
+            <img src={heroImg.url} alt={heroImg.alt} />
+          </Figure>
         </Column>
       </Columns>
     </Inner>
