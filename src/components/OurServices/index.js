@@ -167,8 +167,8 @@ const OurServices = ({ body }) => {
   console.log(body);
 
   const mappedCards = cards.map((card) => {
+    
     return (
-      
         <div className="verticalIconList__item">
           <div className="c-verticalIconList__icon">
             <img src={card.service_illustration.url} alt={card.service_illustration.alt} />

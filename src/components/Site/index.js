@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Footer } from '../Footer';
 import { Navigation } from '../Navigation';
 import { Theme } from '../Theme';
-import { Seo } from './Seo';
+// import { Seo } from './Seo';
 
 const MainHeader = styled.header`
     height: var(--height-headerDesktop);
@@ -27,7 +27,7 @@ const MainHeader = styled.header`
 const Site = ({ location, pageContext, path, seo, children }) => (
   <Theme>
     <MainHeader>
-    <Seo location={location} pageContext={pageContext} seo={seo} />
+    {/* <Seo location={location} pageContext={pageContext} seo={seo} /> */}
     <Navigation path={path} />
     </MainHeader>
     <main>{children}</main>
