@@ -7,3 +7,4 @@ export default {
 };
 
 export const Simple = () => <Hero />;
+ 

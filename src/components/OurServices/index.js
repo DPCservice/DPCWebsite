@@ -164,7 +164,6 @@ const BtnWrapper = styled.div`
 
 const OurServices = ({ body }) => {
   const cards = body.fields;
-  console.log(body);
 
   const mappedCards = cards.map((card) => {
     

@@ -11,7 +11,17 @@ const Header = styled.h2`
   text-align: center;
 `;
 
-const PhotoGallery = () => {
+const PhotoGallery = ({ Images }) => {
+  console.log(Images.fields);
+
+  const photosPrismic = Images.fields.map((photo) => ({
+    src: photo.work_photos.url,
+    alt: photo.work_photos.alt,
+    width: photo.work_photos.dimensions.width,
+    height: photo.work_photos.dimensions.height
+  }));
+
+
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -28,17 +38,18 @@ const PhotoGallery = () => {
   return (
     <Container wide>
       <Header>
-          <strong>
-          cliche vice fashion axe deep<br/> cliche vice fashion
-              </strong>
-              </Header>
-      <Gallery photos={photos} onClick={openLightbox} direction={"column"} />
+        <strong>
+          cliche vice fashion axe deep
+          <br /> cliche vice fashion
+        </strong>
+      </Header>
+      <Gallery photos={photosPrismic} onClick={openLightbox} direction={'column'} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map((x) => ({
+              views={photosPrismic.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,

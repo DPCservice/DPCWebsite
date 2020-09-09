@@ -3,6 +3,7 @@ import { Container } from '../components/Container';
 import { Site } from '../components/Site';
 import { Hero } from '../components/Hero';
 import { OurServices } from '../components/OurServices';
+import {TheTeam} from '../components/TheTeam'
 // import sample from '../assets/Paper.mp4';
 import styled from 'styled-components';
 import { PhotoGallery } from '../components/Gallery';
@@ -68,7 +69,10 @@ const IndexPage = (props) => {
         body ={props.data.prismic.allHome_pages.edges[0].node.body[0]}/>
       </PageWrapper>
       <PageWrapper>
-        <PhotoGallery />
+        <PhotoGallery Images ={props.data.prismic.allHome_pages.edges[0].node.body[1]}/>
+      </PageWrapper>
+      <PageWrapper>
+        <TheTeam />
       </PageWrapper>
     </Site>
   );
