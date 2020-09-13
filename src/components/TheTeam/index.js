@@ -140,42 +140,55 @@ const Team = styled.div`
   }
 `;
 
+const PageWrapper = styled.div`
+  padding: var(--spacing) 0;
+  position: relative;
+  padding-bottom: ${(props) => (props.NoBottomPad ? '0' : null)};
+  padding-top: ${(props) => (props.NoTopPad ? '0' : null)};
+
+  @media screen and (max-width: 600px) {
+    padding: var(--spacingMobile) 0;
+  }
+`;
+
 const TheTeam = () => {
   return (
-    <Container wide>
-      <Header>
-        <strong>cliche vice fashion axe deep cliche vice fashion </strong>
-      </Header>
-      <ThreeCol>
-        <Inner>
-          <h3>Meet the people behind the name</h3>
-          <Excerpt>
-            I'm baby poke portland wayfarers live-edge bushwick kickstarter four dollar toast gastropub seitan listicle
-            fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle fingerstache.
-          </Excerpt>
-        </Inner>
-      </ThreeCol>
-      <Team>
-        <div className="team-carousel">
-          <ul className="team-members">
-            <li>
-              <a href="#">
-                <img src={Avatar} alt="" />
-                <h3>Marian Rhodes</h3>
-                <p>art director</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src={Avatar} alt="" />
-                <h3>Genesis Hanson</h3>
-                <p>founder</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </Team>
-    </Container>
+    <PageWrapper>
+      <Container wide id="about">
+        <Header>
+          <strong>cliche vice fashion axe deep cliche vice fashion </strong>
+        </Header>
+        <ThreeCol>
+          <Inner>
+            <h3>Meet the people behind the name</h3>
+            <Excerpt>
+              I'm baby poke portland wayfarers live-edge bushwick kickstarter four dollar toast gastropub seitan
+              listicle fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle fingerstache.
+            </Excerpt>
+          </Inner>
+        </ThreeCol>
+        <Team>
+          <div className="team-carousel">
+            <ul className="team-members">
+              <li>
+                <a href="#">
+                  <img src={Avatar} alt="" />
+                  <h3>Marian Rhodes</h3>
+                  <p>art director</p>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src={Avatar} alt="" />
+                  <h3>Genesis Hanson</h3>
+                  <p>founder</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </Team>
+      </Container>
+    </PageWrapper>
   );
 };
 

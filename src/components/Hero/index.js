@@ -3,6 +3,29 @@ import styled from 'styled-components';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RichText } from 'prismic-reactjs';
 
+const HeroWrapper = styled.div`
+  background: var(--color-secondary);
+  color: #fff;
+  padding: var(--spacing) 0;
+  position: relative;
+  padding-bottom: calc(var(--spacing) - var(--overlapHeight));
+
+  @media screen and (max-width: 600px) {
+    padding-bottom: calc(var(--spacingMobile) - var(--overlapHeightMobile));
+    padding: var(--spacingMobile) 0;
+  }
+
+  #background-video {
+    height: 100%;
+    width: 100vw;
+    top: 0;
+    padding: none;
+    position: absolute;
+    object-fit: cover;
+    z-index: 0;
+  }
+`;
+
 const Inner = styled.div`
   width: 100%;
   max-width: 1600px;
@@ -69,7 +92,7 @@ const Column = styled.div`
       margin-bottom: var(--spacingSmall);
     }
     @media (min-width: 782px) {
-    flex-grow: 0;
+      flex-grow: 0;
     }
     @media screen and (max-width: 600px) {
       margin-bottom: var(--spacingSmallMobile);
@@ -208,36 +231,42 @@ const Figure = styled.figure`
 const Hero = ({ heroTitle, heroDescription, heroImg }) => {
   // console.log(props);
   return (
-    <Inner>
-      <Columns>
-        <Column>
-          <RichText render={heroTitle} />
-          <div className="has-large-font-size">
-            <RichText render={heroDescription} />
-          </div>
-          <Buttons>
-            <div className="button">
-              <a href="/" className="wp-block-button__link">
-                Get your Free Quote
-              </a>
+    <HeroWrapper >
+       {/* <video id="background-video" autoPlay loop muted preload='auto'>
+        <source src={sample} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video> */}
+      <Inner id="hero">
+        <Columns>
+          <Column>
+            <RichText render={heroTitle} />
+            <div className="has-large-font-size">
+              <RichText render={heroDescription} />
             </div>
-            <div className="button ">
-              <div className="secondary-button">
-                <a href="/">
-                  <span>View Our Work</span>
-                  <FaArrowCircleRight />
+            <Buttons>
+              <div className="button">
+                <a href="/" className="wp-block-button__link">
+                  Get your Free Quote
                 </a>
               </div>
-            </div>
-          </Buttons>
-        </Column>
-        <Column>
-          <Figure>
-            <img src={heroImg.url} alt={heroImg.alt} />
-          </Figure>
-        </Column>
-      </Columns>
-    </Inner>
+              <div className="button ">
+                <div className="secondary-button">
+                  <a href="/">
+                    <span>View Our Work</span>
+                    <FaArrowCircleRight />
+                  </a>
+                </div>
+              </div>
+            </Buttons>
+          </Column>
+          <Column>
+            <Figure>
+              <img src={heroImg.url} alt={heroImg.alt} />
+            </Figure>
+          </Column>
+        </Columns>
+      </Inner>
+    </HeroWrapper>
   );
 };
 

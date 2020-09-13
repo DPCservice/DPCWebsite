@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { PrimaryButton } from '../Button';
 import { RichText } from 'prismic-reactjs';
 
+
 const InnerWrapper = styled.div`
   margin-bottom: 0;
   padding: var(--spacingSmall);
@@ -35,9 +36,9 @@ const Inner = styled.div`
     text-align: center;
     margin-top: 20px;
     h3 {
-    margin-top: 20px;
+      margin-top: 20px;
     }
-    
+
     @media screen and (max-width: 600px) {
       margin-top: 10px;
     }
@@ -53,15 +54,15 @@ const Inner = styled.div`
   }
 
   .c-verticalIconList__icon {
-      height: 85px;
-      display: flex;
-      align-items: center;
- 
-      img {
-          margin: 0 auto;
-          display: block;
-      }
+    height: 85px;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin: 0 auto;
+      display: block;
     }
+  }
   .verticalIconList__item {
     text-align: center;
     padding: 40px 30px;
@@ -91,7 +92,7 @@ const Inner = styled.div`
         border-right: 0;
       }
 
-      :nth-of-type(1n+4) {
+      :nth-of-type(1n + 4) {
         border-top: 1px solid #ececec;
       }
     }
@@ -162,32 +163,43 @@ const BtnWrapper = styled.div`
   }
 `;
 
+const PageWrapper = styled.div`
+  padding: var(--spacing) 0;
+  position: relative;
+  padding-bottom: ${(props) => (props.NoBottomPad ? '0' : null)};
+  padding-top: ${(props) => (props.NoTopPad ? '0' : null)};
+
+  @media screen and (max-width: 600px) {
+    padding: var(--spacingMobile) 0;
+  }
+`;
+
 const OurServices = ({ body }) => {
   const cards = body.fields;
 
-  const mappedCards = cards.map((card) => {
-    
+  const mappedCards = cards.map((card, i) => {
     return (
-        <div className="verticalIconList__item">
-          <div className="c-verticalIconList__icon">
-            <img src={card.service_illustration.url} alt={card.service_illustration.alt} />
-          </div>
-          <RichText render={card.service_title} />
-          <RichText render={card.service_about} />
+      <div className="verticalIconList__item" key={i}>
+        <div className="c-verticalIconList__icon">
+          <img src={card.service_illustration.url} alt={card.service_illustration.alt} />
         </div>
-      
+        <RichText render={card.service_title} />
+        <RichText render={card.service_about} />
+      </div>
     );
   });
   return (
-    <Container wide>
-      <InnerWrapper>
-        <Inner>
-          <div className="has-text-align-center">
-            <RichText render={body.primary.service_section_header} />
-          </div>
-          <div className="verticalIconList">
-          {mappedCards}
-            {/* <div className="verticalIconList__item">
+    <PageWrapper NoBottomPad NoTopPad>
+
+      <Container wide id="our_services">
+        <InnerWrapper>
+          <Inner>
+            <div className="has-text-align-center">
+              <RichText render={body.primary.service_section_header} />
+            </div>
+            <div className="verticalIconList">
+              {mappedCards}
+              {/* <div className="verticalIconList__item">
               <div></div>
               <h5>
                 this is a test
@@ -199,17 +211,19 @@ const OurServices = ({ body }) => {
                 fingerstache blue bottle messenger bag.
               </p>
             </div> */}
-          </div>
-          <div className="simpleCta">
-            <img src={body.primary.service_cta_image.url} alt={body.primary.service_cta_image.url} />
-            <RichText render={body.primary.service_cta_phrase}/>
-            <BtnWrapper>
-              <PrimaryButton href="/">Book Now</PrimaryButton>
-            </BtnWrapper>
-          </div>
-        </Inner>
-      </InnerWrapper>
-    </Container>
+            </div>
+            <div className="simpleCta">
+              <img src={body.primary.service_cta_image.url} alt={body.primary.service_cta_image.url} />
+              <RichText render={body.primary.service_cta_phrase} />
+              <BtnWrapper>
+                <PrimaryButton href="/">Book Now</PrimaryButton>
+              </BtnWrapper>
+            </div>
+          </Inner>
+        </InnerWrapper>
+      </Container>
+    </PageWrapper>
+    
   );
 };
 

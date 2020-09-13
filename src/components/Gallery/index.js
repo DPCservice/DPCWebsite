@@ -11,6 +11,16 @@ const Header = styled.h2`
   text-align: center;
 `;
 
+const PageWrapper = styled.div`
+  padding: var(--spacing) 0;
+  position: relative;
+  padding-bottom: ${(props) => (props.NoBottomPad ? '0' : null)};
+  padding-top: ${(props) => (props.NoTopPad ? '0' : null)};
+
+  @media screen and (max-width: 600px) {
+    padding: var(--spacingMobile) 0;
+  }
+`;
 const PhotoGallery = ({ Images }) => {
   console.log(Images.fields);
 
@@ -18,9 +28,8 @@ const PhotoGallery = ({ Images }) => {
     src: photo.work_photos.url,
     alt: photo.work_photos.alt,
     width: photo.work_photos.dimensions.width,
-    height: photo.work_photos.dimensions.height
+    height: photo.work_photos.dimensions.height,
   }));
-
 
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
@@ -36,29 +45,31 @@ const PhotoGallery = ({ Images }) => {
   };
 
   return (
-    <Container wide>
-      <Header>
-        <strong>
-          cliche vice fashion axe deep
-          <br /> cliche vice fashion
-        </strong>
-      </Header>
-      <Gallery photos={photosPrismic} onClick={openLightbox} direction={'column'} />
-      <ModalGateway>
-        {viewerIsOpen ? (
-          <Modal onClose={closeLightbox}>
-            <Carousel
-              currentIndex={currentImage}
-              views={photosPrismic.map((x) => ({
-                ...x,
-                srcset: x.srcSet,
-                caption: x.title,
-              }))}
-            />
-          </Modal>
-        ) : null}
-      </ModalGateway>
-    </Container>
+    <PageWrapper>
+      <Container wide id="our_work">
+        <Header>
+          <strong>
+            cliche vice fashion axe deep
+            <br /> cliche vice fashion
+          </strong>
+        </Header>
+        <Gallery photos={photosPrismic} onClick={openLightbox} direction={'column'} />
+        <ModalGateway>
+          {viewerIsOpen ? (
+            <Modal onClose={closeLightbox}>
+              <Carousel
+                currentIndex={currentImage}
+                views={photosPrismic.map((x) => ({
+                  ...x,
+                  srcset: x.srcSet,
+                  caption: x.title,
+                }))}
+              />
+            </Modal>
+          ) : null}
+        </ModalGateway>
+      </Container>
+    </PageWrapper>
   );
 };
 

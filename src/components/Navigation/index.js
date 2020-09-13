@@ -1,9 +1,10 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { uid } from 'react-uid';
 import styled from 'styled-components';
-import { Container } from '../Container';
+// import { Container } from '../Container';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Wrapper = styled.div`
   display: flex;
@@ -116,34 +117,41 @@ const NavItem = styled.li`
   position: relative;
   margin: 0 40px 0 0;
   padding: 0;
-`;
 
-const NavLink = styled.a`
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  position: relative;
-  padding-bottom: 4px;
-  text-decoration: none;
-  letter-spacing: -0.04em;
+  .NavLink {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    padding-bottom: 4px;
+    text-decoration: none;
+    letter-spacing: -0.04em;
+    cursor: pointer;
 
-  :before {
-    content: '';
-    position: absolute;
-    left: 0;
-    height: 1px;
-    bottom: -1px;
-    right: 100%;
-    background: #fff;
-    opacity: 0;
-    transition: 0.3s right, 0.3s opacity, 0.3s background;
+    :before {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 1px;
+      bottom: -1px;
+      right: 100%;
+      background: #fff;
+      opacity: 0;
+      transition: 0.3s right, 0.3s opacity, 0.3s background;
+    }
+    :hover:before {
+      right: 0;
+      opacity: 1;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 20px;
+    }
   }
-  :hover:before {
-    right: 0;
-    opacity: 1;
-  }
-  @media screen and (max-width: 600px) {
-    font-size: 20px;
+  .active {
+    :before {
+      right: 0;
+      opacity: 1;
+    }
   }
 `;
 
@@ -216,30 +224,32 @@ const NavIcon = styled.a`
   }
 `;
 
-const Item = styled(Link).withConfig({ shouldForwardProp: (prop) => !['isActive'].includes(prop) })`
-  padding: 16px 8px;
-  color: #fff;
-  font-weight: 500;
-  line-height: 24px;
-  opacity: ${(p) => (p.isActive ? '1' : '0.6')};
-  text-decoration: none;
+// const Item = styled(Link).withConfig({ shouldForwardProp: (prop) => !['isActive'].includes(prop) })`
+//   padding: 16px 8px;
+//   color: #fff;
+//   font-weight: 500;
+//   line-height: 24px;
+//   opacity: ${(p) => (p.isActive ? '1' : '0.6')};
+//   text-decoration: none;
 
-  :hover {
-    opacity: 1;
-    text-decoration: none;
-  }
+//   :hover {
+//     opacity: 1;
+//     text-decoration: none;
+//   }
 
-  @media (max-width: 648px) {
-    padding: 8px;
-  }
-`;
+//   @media (max-width: 648px) {
+//     padding: 8px;
+//   }
+// `;
 
 const Navigation = (props) => {
   const [isActive, setIsActive] = useState(false);
-  console.log(props);
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
   return (
     <Wrapper>
-      <Logo to="/">Logo</Logo>
+      <Link to="/" onClick={scrollToTop}>Logo</Link>
       <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
         <span></span>
         <span></span>
@@ -248,16 +258,55 @@ const Navigation = (props) => {
       <Nav className={isActive ? 'nav--active' : null}>
         <NavItems>
           <NavItem>
-            <NavLink href="/">Why Choose Us?</NavLink>
+            <Link
+              activeClass="active"
+              className="NavLink"
+              to="hero"
+              smooth={true}
+              spy={true}
+              offset={-200}
+              duration={500}
+            >
+              Why Choose Us?
+            </Link>
           </NavItem>
           <NavItem>
-            <NavLink href="/">How We Can Help</NavLink>
+            <Link 
+            className="NavLink" 
+            activeClass="active"
+            to="our_services"
+            smooth={true} 
+            spy={true} 
+            offset={-150} 
+            duration={500}>
+              How We Can Help
+            </Link>
           </NavItem>
           <NavItem>
-            <NavLink href="/">Our Work</NavLink>
+            <Link
+              activeClass="active"
+              className="NavLink"
+              to="our_work"
+              smooth={true}
+              spy={true}
+              offset={-150}
+              duration={500}
+            >
+              Our Work
+            </Link>
           </NavItem>
           <NavItem>
-            <NavLink href="/">About</NavLink>
+            <Link
+              activeClass="active"
+              className="NavLink"
+              to="about"
+              smooth={true}
+              spy={true}
+              offset={-150}
+              duration={500}
+            >
+              About
+            </Link>
           </NavItem>
           <NavItem>
             <Navbutton>Get A Free Quote</Navbutton>
