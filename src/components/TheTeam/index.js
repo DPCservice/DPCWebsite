@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Avatar from '../../assets/avatar.png'
+import Avatar from '../../assets/avatar.png';
 import { Container } from '../Container';
 
 const Header = styled.h2`
@@ -17,7 +17,13 @@ const ThreeCol = styled.div`
 
   @media screen and (min-width: 1201px) {
     position: relative;
-    padding-right: 0 !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: var(--spacingSmallTablet);
+  }
+  @media screen and (max-width: 600px) {
+    padding: var(--spacingSmallMobile);
   }
 `;
 
@@ -28,20 +34,45 @@ const Inner = styled.div`
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
+  justify-content: space-around;
   align-items: center;
 
   h3 {
     width: 290px;
     margin-right: 7%;
     flex-shrink: 0;
-    margin-top: -11px !important;
+    margin-top: -11px;
     margin-bottom: 0;
     font-weight: 600;
+  }
+
+  @media screen and (max-width: 1100px) {
+    text-align: center;
+    flex-direction: column;
+
+    h3 {
+      margin-top: 20px;
+      width: 100%;
+      margin-right: 0;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    h3 {
+      font-size: 24px;
+      margin: 30px 0 13px;
+      margin-top: 10px;
+    }
   }
 `;
 
 const Excerpt = styled.div`
-  width: calc(99.99% - 545px - 14%);  
+  width: calc(99.99% - 400px - 10%);
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 `;
 
 const Team = styled.div`
@@ -113,8 +144,7 @@ const TheTeam = () => {
   return (
     <Container wide>
       <Header>
-        <strong>cliche vice fashion axe deep
-cliche vice fashion </strong>
+        <strong>cliche vice fashion axe deep cliche vice fashion </strong>
       </Header>
       <ThreeCol>
         <Inner>
