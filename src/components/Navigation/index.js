@@ -249,7 +249,9 @@ const Navigation = (props) => {
   };
   return (
     <Wrapper>
-      <Link to="/" onClick={scrollToTop}>Logo</Link>
+      <Link to="/" onClick={scrollToTop}>
+        Logo
+      </Link>
       <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
         <span></span>
         <span></span>
@@ -259,6 +261,7 @@ const Navigation = (props) => {
         <NavItems>
           <NavItem>
             <Link
+              onClick={() => setIsActive(!isActive)}
               activeClass="active"
               className="NavLink"
               to="hero"
@@ -271,19 +274,22 @@ const Navigation = (props) => {
             </Link>
           </NavItem>
           <NavItem>
-            <Link 
-            className="NavLink" 
-            activeClass="active"
-            to="our_services"
-            smooth={true} 
-            spy={true} 
-            offset={-150} 
-            duration={500}>
+            <Link
+              onClick={() => setIsActive(!isActive)}
+              className="NavLink"
+              activeClass="active"
+              to="our_services"
+              smooth={true}
+              spy={true}
+              offset={-150}
+              duration={500}
+            >
               How We Can Help
             </Link>
           </NavItem>
           <NavItem>
             <Link
+              onClick={() => setIsActive(!isActive)}
               activeClass="active"
               className="NavLink"
               to="our_work"
@@ -297,6 +303,7 @@ const Navigation = (props) => {
           </NavItem>
           <NavItem>
             <Link
+              onClick={() => setIsActive(!isActive)}
               activeClass="active"
               className="NavLink"
               to="about"
