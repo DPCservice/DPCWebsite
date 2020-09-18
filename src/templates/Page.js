@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Container } from '../components/Container';
-import { Site } from '../components/Site';
+import { Layout } from '../components/Site';
 
 const Page = ({ children, ...other }) => {
   return (
-    <Site {...other}>
+    <Layout {...other}>
       <Container>{children}</Container>
-    </Site>
+    </Layout>
   );
 };
 

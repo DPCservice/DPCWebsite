@@ -1,9 +1,7 @@
 import React from 'react';
-import { Site } from '../components/Site';
+import { Layout } from '../components/Layout';
+import SliceZone from '../components/sliceZone';
 import { Hero } from '../components/Hero';
-import { OurServices } from '../components/OurServices';
-import { TheTeam } from '../components/TheTeam';
-import { PhotoGallery } from '../components/Gallery';
 import { graphql } from 'gatsby';
 
 const seo = {
@@ -14,20 +12,14 @@ const IndexPage = (props) => {
   console.log(props);
 
   return (
-    <Site seo={seo} {...props}>
-      {/* <video id="background-video" autoPlay loop muted preload='auto'>
-        <source src={sample} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> */}
+    <Layout seo={seo} {...props}>
       <Hero
         heroTitle={props.data.prismic.allHome_pages.edges[0].node.hero_title}
         heroDescription={props.data.prismic.allHome_pages.edges[0].node.hero_title_description}
         heroImg={props.data.prismic.allHome_pages.edges[0].node.hero_title_image}
       />
-      <OurServices body={props.data.prismic.allHome_pages.edges[0].node.body[0]} />
-      <PhotoGallery Images={props.data.prismic.allHome_pages.edges[0].node.body[1]} />
-      <TheTeam />
-    </Site>
+      <SliceZone body={props.data.prismic.allHome_pages.edges[0].node.body} />
+    </Layout>
   );
 };
 
@@ -60,6 +52,20 @@ export const query = graphql`
                 }
                 fields {
                   work_photos
+                }
+              }
+              ... on PRISMIC_Home_pageBodyAbout {
+                type
+                label
+                primary {
+                  section_title
+                  meet_the_people
+                  description_company_culture
+                }
+                fields {
+                  avatar
+                  avatar_name
+                  position_title
                 }
               }
             }

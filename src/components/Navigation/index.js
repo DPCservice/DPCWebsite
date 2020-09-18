@@ -1,9 +1,8 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { uid } from 'react-uid';
 import styled from 'styled-components';
-// import { Container } from '../Container';
 import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Wrapper = styled.div`
@@ -40,9 +39,17 @@ const Wrapper = styled.div`
       transition-delay: 0s;
       transform: none;
     }
+
+    img {
+      width: 190px;
+    }
   }
   @media screen and (max-width: 600px) {
     padding: 0 20px;
+
+    img {
+      width: 132px;
+    }
   }
 `;
 
@@ -224,101 +231,102 @@ const NavIcon = styled.a`
   }
 `;
 
-// const Item = styled(Link).withConfig({ shouldForwardProp: (prop) => !['isActive'].includes(prop) })`
-//   padding: 16px 8px;
-//   color: #fff;
-//   font-weight: 500;
-//   line-height: 24px;
-//   opacity: ${(p) => (p.isActive ? '1' : '0.6')};
-//   text-decoration: none;
+const MainHeader = styled.header`
+  height: var(--height-headerDesktop);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-//   :hover {
-//     opacity: 1;
-//     text-decoration: none;
-//   }
+  @media screen and (max-width: 600px) {
+    height: var(--height-headerMobile);
+  }
+`;
 
-//   @media (max-width: 648px) {
-//     padding: 8px;
-//   }
-// `;
-
-const Navigation = (props) => {
+const Navigation = ({ brandImg, navLinks }) => {
+  console.log(brandImg);
   const [isActive, setIsActive] = useState(false);
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
   return (
-    <Wrapper>
-      <Link to="/" onClick={scrollToTop}>
-        Logo
-      </Link>
-      <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </NavIcon>
-      <Nav className={isActive ? 'nav--active' : null}>
-        <NavItems>
-          <NavItem>
-            <Link
-              onClick={() => setIsActive(!isActive)}
-              activeClass="active"
-              className="NavLink"
-              to="hero"
-              smooth={true}
-              spy={true}
-              offset={-200}
-              duration={500}
-            >
-              Why Choose Us?
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link
-              onClick={() => setIsActive(!isActive)}
-              className="NavLink"
-              activeClass="active"
-              to="our_services"
-              smooth={true}
-              spy={true}
-              offset={-150}
-              duration={500}
-            >
-              How We Can Help
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link
-              onClick={() => setIsActive(!isActive)}
-              activeClass="active"
-              className="NavLink"
-              to="our_work"
-              smooth={true}
-              spy={true}
-              offset={-150}
-              duration={500}
-            >
-              Our Work
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link
-              onClick={() => setIsActive(!isActive)}
-              activeClass="active"
-              className="NavLink"
-              to="about"
-              smooth={true}
-              spy={true}
-              offset={-150}
-              duration={500}
-            >
-              About
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Navbutton>Get A Free Quote</Navbutton>
-          </NavItem>
-          {/* {items.map(({ label, to, href }) =>
+    <MainHeader>
+      <Wrapper>
+        <Link to="/" onClick={scrollToTop}>
+          <img src={brandImg.url} alt={brandImg.alt} />
+        </Link>
+        <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </NavIcon>
+        <Nav className={isActive ? 'nav--active' : null}>
+          <NavItems>
+            <NavItem>
+              <Link
+                onClick={() => setIsActive(!isActive)}
+                activeClass="active"
+                className="NavLink"
+                to="hero"
+                smooth={true}
+                spy={true}
+                offset={-200}
+                duration={500}
+              >
+                Why Choose Us?
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link
+                onClick={() => setIsActive(!isActive)}
+                className="NavLink"
+                activeClass="active"
+                to="our_services"
+                smooth={true}
+                spy={true}
+                offset={-150}
+                duration={500}
+              >
+                How We Can Help
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link
+                onClick={() => setIsActive(!isActive)}
+                activeClass="active"
+                className="NavLink"
+                to="our_work"
+                smooth={true}
+                spy={true}
+                offset={-150}
+                duration={500}
+              >
+                Our Work
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link
+                onClick={() => setIsActive(!isActive)}
+                activeClass="active"
+                className="NavLink"
+                to="about"
+                smooth={true}
+                spy={true}
+                offset={-150}
+                duration={500}
+              >
+                About
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Navbutton>Get A Free Quote</Navbutton>
+            </NavItem>
+            {/* {items.map(({ label, to, href }) =>
               to ? (
                 <Item key={uid(label)} to={to} isActive={to === path}>
                   {label}
@@ -329,9 +337,10 @@ const Navigation = (props) => {
                 </Item>
               ), 
             )}*/}
-        </NavItems>
-      </Nav>
-    </Wrapper>
+          </NavItems>
+        </Nav>
+      </Wrapper>
+    </MainHeader>
   );
 };
 

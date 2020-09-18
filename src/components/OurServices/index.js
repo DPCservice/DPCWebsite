@@ -174,8 +174,7 @@ const PageWrapper = styled.div`
   }
 `;
 
-const OurServices = ({ body }) => {
-  const cards = body.fields;
+const OurServices = ({ cards,title, ctaImage, ctaTitle }) => {
 
   const mappedCards = cards.map((card, i) => {
     return (
@@ -195,7 +194,7 @@ const OurServices = ({ body }) => {
         <InnerWrapper>
           <Inner>
             <div className="has-text-align-center">
-              <RichText render={body.primary.service_section_header} />
+              <RichText render={title} />
             </div>
             <div className="verticalIconList">
               {mappedCards}
@@ -213,8 +212,8 @@ const OurServices = ({ body }) => {
             </div> */}
             </div>
             <div className="simpleCta">
-              <img src={body.primary.service_cta_image.url} alt={body.primary.service_cta_image.url} />
-              <RichText render={body.primary.service_cta_phrase} />
+              <img src={ctaImage.url} alt={ctaImage.alt} />
+              <RichText render={ctaTitle} />
               <BtnWrapper>
                 <PrimaryButton href="/">Book Now</PrimaryButton>
               </BtnWrapper>

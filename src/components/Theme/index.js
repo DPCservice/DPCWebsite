@@ -6,15 +6,17 @@ import { BaseCSS } from './BaseCSS';
 
 const system = {};
 
-const Theme = ({ children }) => (
-  <ThemeProvider theme={system}>
-    <>
-      <Normalize />
-      <BaseCSS />
-      {children}
-    </>
-  </ThemeProvider>
-);
+const Theme = ({ children }) => {
+  return (
+    <ThemeProvider theme={system}>
+      <>
+        <Normalize />
+        <BaseCSS />
+        {children}
+      </>
+    </ThemeProvider>
+  );
+};
 
 Theme.propTypes = {
   children: PropTypes.node.isRequired,

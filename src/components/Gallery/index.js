@@ -2,10 +2,9 @@ import React, { useState, useCallback } from 'react';
 import { render } from 'react-dom';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
-import { photos } from '../../assets/photos';
 import { Container } from '../Container';
 import styled from 'styled-components';
-
+import { RichText } from 'prismic-reactjs';
 const Header = styled.h2`
   margin-top: -17px;
   text-align: center;
@@ -21,10 +20,9 @@ const PageWrapper = styled.div`
     padding: var(--spacingMobile) 0;
   }
 `;
-const PhotoGallery = ({ Images }) => {
-  console.log(Images.fields);
-
-  const photosPrismic = Images.fields.map((photo) => ({
+const PhotoGallery = ({ images,title }) => {
+  
+  const photosPrismic = images.map((photo) => ({
     src: photo.work_photos.url,
     alt: photo.work_photos.alt,
     width: photo.work_photos.dimensions.width,
@@ -49,8 +47,7 @@ const PhotoGallery = ({ Images }) => {
       <Container wide id="our_work">
         <Header>
           <strong>
-            cliche vice fashion axe deep
-            <br /> cliche vice fashion
+            <RichText render={title}/>
           </strong>
         </Header>
         <Gallery photos={photosPrismic} onClick={openLightbox} direction={'column'} />

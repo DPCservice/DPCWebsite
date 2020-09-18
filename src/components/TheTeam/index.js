@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Avatar from '../../assets/avatar.png';
 import { Container } from '../Container';
+import { RichText } from 'prismic-reactjs';
 
 const Header = styled.h2`
   margin-top: -17px;
@@ -104,7 +105,7 @@ const Team = styled.div`
       margin: 0;
     }
   }
-  a {
+  .avatar {
     color: black;
     text-decoration: none;
 
@@ -151,39 +152,38 @@ const PageWrapper = styled.div`
   }
 `;
 
-const TheTeam = () => {
+const TheTeam = ({ teamMembers, sectionTitle, sectionSubTitle, companyDescription }) => {
+  console.log(teamMembers);
+  const teamMember = teamMembers.map((member) => {
+    return (
+      <li>
+        <div className="avatar">
+          <img src={member.avatar.url} alt={member.avatar.alt} />
+          <RichText render={member.avatar_name} />
+          <RichText render={member.position_title} />
+        </div>
+      </li>
+    );
+  });
+
   return (
     <PageWrapper>
       <Container wide id="about">
         <Header>
-          <strong>cliche vice fashion axe deep cliche vice fashion </strong>
+          <strong>
+            <RichText render={sectionTitle} />
+          </strong>
         </Header>
         <ThreeCol>
           <Inner>
-            <h3>Meet the people behind the name</h3>
-            <Excerpt>
-              I'm baby poke portland wayfarers live-edge bushwick kickstarter four dollar toast gastropub seitan
-              listicle fingerstache. Deep v bushwick rampsfour dollar toast gastropub seitan listicle fingerstache.
-            </Excerpt>
+            <RichText render={sectionSubTitle} />
+            <Excerpt>{companyDescription}</Excerpt>
           </Inner>
         </ThreeCol>
         <Team>
           <div className="team-carousel">
             <ul className="team-members">
-              <li>
-                <a href="#">
-                  <img src={Avatar} alt="" />
-                  <h3>Marian Rhodes</h3>
-                  <p>art director</p>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <img src={Avatar} alt="" />
-                  <h3>Genesis Hanson</h3>
-                  <p>founder</p>
-                </a>
-              </li>
+             {teamMember}
             </ul>
           </div>
         </Team>
