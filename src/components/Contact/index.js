@@ -281,21 +281,20 @@ const Contact = () => {
                     phoneNumber: Yup.string().phone().required(),
                   })}
                   onSubmit={(values, actions) => {
-                    
                     console.log(values);
-                    fetch("/", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                      body: encode({ "form-name": "contact-demo", ...values })
+                    fetch('/', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                      body: encode({ 'form-name': 'contact-demo', ...values }),
                     })
-                    .then(() => {
-                      alert('Success');
-                      actions.resetForm()
-                    })
-                    .catch(() => {
-                      alert('Error');
-                    })
-                    .finally(() => actions.setSubmitting(false))
+                      .then(() => {
+                        alert('Success');
+                        actions.resetForm();
+                      })
+                      .catch(() => {
+                        alert('Error');
+                      })
+                      .finally(() => actions.setSubmitting(false));
                   }}
                 >
                   {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
@@ -306,12 +305,12 @@ const Contact = () => {
                         helperText={touched.fullName && errors.fullName}
                         label="Your full name"
                         margin="normal"
-                        name="firstName"
+                        name="fullName"
                         onBlur={handleBlur}
                         onChange={handleChange}
                         type="text"
                         value={values.fullName}
-                        variant="filled"
+                        variant="outlined"
                       />
 
                       <TextField
@@ -355,14 +354,14 @@ const Contact = () => {
                       />
                       <Box mt={2}>
                         <Button
-                          color="secondary"
+                          color="primary"
                           disabled={isSubmitting}
                           fullWidth
                           size="large"
                           type="submit"
                           variant="contained"
                         >
-                          Create account
+                          Submit Request
                         </Button>
                         {errors.submit && (
                           <Box mt={3}>
@@ -383,64 +382,3 @@ const Contact = () => {
 };
 
 export { Contact };
-
-// {/* <form>
-// <TextField
-//   classes={{
-//     root: classes.root, // class name, e.g. `classes-nesting-root-x`
-//   }}
-//   fullWidth
-//   label="Your full name"
-//   margin="normal"
-//   name="Full Name"
-//   type="Full Name"
-//   variant="outlined"
-// />
-// <TextField
-//   classes={{
-//     root: classes.root, // class name, e.g. `classes-nesting-root-x`
-//   }}
-//   fullWidth
-//   label="Enter your email address"
-//   margin="normal"
-//   name="email"
-//   type="email"
-//   variant="outlined"
-// />
-// <TextField
-//   classes={{
-//     root: classes.root, // class name, e.g. `classes-nesting-root-x`
-//   }}
-//   fullWidth
-//   label="Enter your phone number"
-//   margin="normal"
-//   name="phone"
-//   type="phone"
-//   variant="outlined"
-// />
-// <TextField
-//   classes={{
-//     root: classes.root, // class name, e.g. `classes-nesting-root-x`
-//   }}
-//   fullWidth
-//   label="Please enter your project details"
-//   margin="normal"
-//   multiline
-//   rows={4}
-//   name="phone"
-//   type="phone"
-//   variant="outlined"
-// />
-// <Box mt={2}>
-//   {/* <Button
-//     color="secondary"
-
-//     fullWidth
-//     size="large"
-//     type="submit"
-//     variant="contained"
-//   >
-//     Log In
-//   </Button> */}
-// </Box>
-// </form> */}
