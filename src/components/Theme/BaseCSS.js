@@ -131,5 +131,12 @@ export const BaseCSS = createGlobalStyle`
     margin-left: 8px;
     border-left: 4px solid rgba(0, 0, 0, 0.13)
   }
+
+  .linksNone {
+    display: none;
+  }
+  .navStatic {
+    position: absolute !important;
+  }
   
 `;

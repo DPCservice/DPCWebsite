@@ -8,7 +8,7 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content:${({path}) => (path ==='/contact/' ? 'center' : 'space-between')};
+  justify-content: space-between;
   width: 100%;
   max-width: 1600px;
   padding: 0 60px;
@@ -59,7 +59,6 @@ const Logo = styled.a`
 `;
 
 const Nav = styled.nav`
-  display: ${({ path }) => (path === '/contact/' ? 'none' : 'null')};
   @media screen and (max-width: 1100px) {
     position: fixed;
     top: var(--height-headerDesktop);
@@ -228,13 +227,13 @@ const NavIcon = styled.a`
   }
 
   @media screen and (max-width: 1100px) {
-    display: ${({ path }) => (path === '/contact/' ? 'none' : 'block')};
+    display: block;
   }
 `;
 
 const MainHeader = styled.header`
   height: var(--height-headerDesktop);
-  position: ${({ path }) => (path === '/contact/' ? 'absolute' : 'fixed')};
+  position: fixed;
   z-index: 999;
   top: 0;
   left: 0;
@@ -250,25 +249,28 @@ const MainHeader = styled.header`
 `;
 
 const Navigation = ({ brandImg, navLinks, path }) => {
+  console.log(path);
   const [isActive, setIsActive] = useState(false);
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
   return (
-    <MainHeader path={path}>
-      <Wrapper path={path}>
+    <MainHeader className={path === '/contact/' ? 'navStatic' : null}>
+      <Wrapper>
         <div>
           <a href="/">
             <img src={brandImg.url} alt={brandImg.alt} />
           </a>
         </div>
-        <NavIcon path={path} onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
-          <span></span>
-          <span></span>
-          <span></span>
+        <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
+          <div className={path === '/contact/' ? 'linksNone' : null}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </NavIcon>
-        <Nav className={isActive ? 'nav--active' : null} path={path}>
-          <NavItems>
+        <Nav className={isActive ? 'nav--active' : null}>
+          <NavItems className={path === '/contact/' ? 'linksNone' : null}>
             <NavItem>
               <Link
                 onClick={() => setIsActive(!isActive)}

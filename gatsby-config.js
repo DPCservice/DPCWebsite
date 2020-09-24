@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    name: 'Awesome Gatsby Starter',
+    name: 'Design Prototype Consult LLC',
     basepath: 'https://awesome-gatsby-starter.netlify.app',
     description: 'A starter for GatsbyJS with a preconfigured MDX, Storybook and ESLint environment',
     keywords: ['gatsby', 'gatsbyjs', 'gatsby starter', 'github'],
@@ -31,15 +31,6 @@ module.exports = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages/`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        defaultLayouts: {
-          pages: require.resolve('./src/templates/Page.js'),
-        },
       },
     },
     'gatsby-plugin-sharp',
