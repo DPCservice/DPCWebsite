@@ -8,8 +8,7 @@ import { Theme } from '../Theme';
 
 // import { Seo } from './Seo';
 
-const Layout = ({ location, pageContext, seo, children }, props) => {
-  console.log(props);
+const Layout = ({ location, pageContext, seo, children, path },) => {
   return (
     <Theme>
       {/* <Seo location={location} pageContext={pageContext} seo={seo} /> */}
@@ -20,6 +19,7 @@ const Layout = ({ location, pageContext, seo, children }, props) => {
           return(
             <Navigation 
             brandImg={data.prismic.allNavigations.edges[0].node.branding_logo} navLinks={data.prismic.allNavigations.edges[0].node.navigation_links}
+            path={path}
             />
           )
         }}

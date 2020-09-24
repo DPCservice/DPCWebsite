@@ -50,6 +50,11 @@ const Inner = styled.div`
   margin: 0 auto;
   box-sizing: border-box;
   z-index: 10;
+  text-align:center;
+
+  p{
+    font-size: 20px;
+  }
 
   @media screen and (max-width: 600px) {
     padding: 0 20px;
@@ -81,7 +86,7 @@ const Columns = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  margin-bottom: 0;
+  margin-bottom:80px;
   /* padding: var(--spacingSmall); */
   padding: var(--spacing) 0;
   margin-top: var(--overlapHeight) !important;
@@ -356,7 +361,6 @@ const Contact = () => {
                         <Button
                           color="primary"
                           disabled={isSubmitting}
-                          fullWidth
                           size="large"
                           type="submit"
                           variant="contained"

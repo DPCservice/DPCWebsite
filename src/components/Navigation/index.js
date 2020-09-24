@@ -8,7 +8,7 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:${({path}) => (path ==='/contact/' ? 'center' : 'space-between')};
   width: 100%;
   max-width: 1600px;
   padding: 0 60px;
@@ -59,6 +59,7 @@ const Logo = styled.a`
 `;
 
 const Nav = styled.nav`
+  display: ${({ path }) => (path === '/contact/' ? 'none' : 'null')};
   @media screen and (max-width: 1100px) {
     position: fixed;
     top: var(--height-headerDesktop);
@@ -227,13 +228,13 @@ const NavIcon = styled.a`
   }
 
   @media screen and (max-width: 1100px) {
-    display: block;
+    display: ${({ path }) => (path === '/contact/' ? 'none' : 'block')};
   }
 `;
 
 const MainHeader = styled.header`
   height: var(--height-headerDesktop);
-  position: fixed;
+  position: ${({ path }) => (path === '/contact/' ? 'absolute' : 'fixed')};
   z-index: 999;
   top: 0;
   left: 0;
@@ -248,24 +249,25 @@ const MainHeader = styled.header`
   }
 `;
 
-const Navigation = ({ brandImg, navLinks }) => {
-  console.log(brandImg);
+const Navigation = ({ brandImg, navLinks, path }) => {
   const [isActive, setIsActive] = useState(false);
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
   return (
-    <MainHeader>
-      <Wrapper>
-        <a href="/" >
-          <img src={brandImg.url} alt={brandImg.alt} />
-        </a>
-        <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
+    <MainHeader path={path}>
+      <Wrapper path={path}>
+        <div>
+          <a href="/">
+            <img src={brandImg.url} alt={brandImg.alt} />
+          </a>
+        </div>
+        <NavIcon path={path} onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
           <span></span>
           <span></span>
           <span></span>
         </NavIcon>
-        <Nav className={isActive ? 'nav--active' : null}>
+        <Nav className={isActive ? 'nav--active' : null} path={path}>
           <NavItems>
             <NavItem>
               <Link
