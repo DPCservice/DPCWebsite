@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+
 const Seo = ({ location: { pathname }, pageContext, seo }) => {
   const {
     site: { siteMetadata },
@@ -45,6 +46,7 @@ const Seo = ({ location: { pathname }, pageContext, seo }) => {
       <meta property="og:type" content={type} />
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     </Helmet>
   );
 };

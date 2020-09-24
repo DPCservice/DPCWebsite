@@ -257,9 +257,9 @@ const Navigation = ({ brandImg, navLinks }) => {
   return (
     <MainHeader>
       <Wrapper>
-        <Link to="/" onClick={scrollToTop}>
+        <a href="/" >
           <img src={brandImg.url} alt={brandImg.alt} />
-        </Link>
+        </a>
         <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
           <span></span>
           <span></span>
@@ -324,7 +324,7 @@ const Navigation = ({ brandImg, navLinks }) => {
               </Link>
             </NavItem>
             <NavItem>
-              <Navbutton>Get A Free Quote</Navbutton>
+              <Navbutton href="/contact">Get A Free Quote</Navbutton>
             </NavItem>
             {/* {items.map(({ label, to, href }) =>
               to ? (

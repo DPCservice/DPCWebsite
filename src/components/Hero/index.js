@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, animateScroll as scroll } from 'react-scroll';
 import { FaArrowCircleRight } from 'react-icons/fa';
 import { RichText } from 'prismic-reactjs';
 
@@ -195,6 +196,7 @@ const Buttons = styled.div`
 
     a {
       color: #fff;
+      cursor: pointer;
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -231,8 +233,8 @@ const Figure = styled.figure`
 const Hero = ({ heroTitle, heroDescription, heroImg }) => {
   // console.log(props);
   return (
-    <HeroWrapper >
-       {/* <video id="background-video" autoPlay loop muted preload='auto'>
+    <HeroWrapper>
+      {/* <video id="background-video" autoPlay loop muted preload='auto'>
         <source src={sample} type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
@@ -245,16 +247,25 @@ const Hero = ({ heroTitle, heroDescription, heroImg }) => {
             </div>
             <Buttons>
               <div className="button">
-                <a href="/" className="wp-block-button__link">
+                <a href="/contact" className="wp-block-button__link">
                   Get your Free Quote
                 </a>
               </div>
               <div className="button ">
                 <div className="secondary-button">
-                  <a href="/">
+                  <Link
+                    className="NavLink"
+                    to="our_work"
+                    smooth={true}
+                    spy={true}
+                    offset={-150}
+                    duration={500}
+                  >
                     <span>View Our Work</span>
                     <FaArrowCircleRight />
-                  </a>
+                  </Link>
+                  
+                  
                 </div>
               </div>
             </Buttons>

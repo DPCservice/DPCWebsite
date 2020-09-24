@@ -107,6 +107,7 @@ const Inner = styled.div`
   }
   .simpleCta {
     background: #fff;
+    border-radius:15px;
     border: 1px solid #f6f6f6;
     padding: 60px 75px;
     margin: var(--spacingSmall) 0;
@@ -215,7 +216,7 @@ const OurServices = ({ cards,title, ctaImage, ctaTitle }) => {
               <img src={ctaImage.url} alt={ctaImage.alt} />
               <RichText render={ctaTitle} />
               <BtnWrapper>
-                <PrimaryButton href="/">Book Now</PrimaryButton>
+                <PrimaryButton href="/contact">Book Now</PrimaryButton>
               </BtnWrapper>
             </div>
           </Inner>

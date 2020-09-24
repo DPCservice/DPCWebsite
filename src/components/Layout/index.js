@@ -8,7 +8,8 @@ import { Theme } from '../Theme';
 
 // import { Seo } from './Seo';
 
-const Layout = ({ location, pageContext, seo, children }) => {
+const Layout = ({ location, pageContext, seo, children }, props) => {
+  console.log(props);
   return (
     <Theme>
       {/* <Seo location={location} pageContext={pageContext} seo={seo} /> */}
