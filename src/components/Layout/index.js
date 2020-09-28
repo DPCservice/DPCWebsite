@@ -5,14 +5,15 @@ import { Navigation } from '../Navigation';
 import { SimpNav } from '../Navigation/SimpNav';
 import { StaticQuery, graphql } from 'gatsby';
 import { Theme } from '../Theme';
+import {Seo} from './Seo'
 
 // import { Seo } from './Seo';
 
 const Layout = ({ location, pageContext, seo, children, path }) => {
-  
+  console.log(seo);
   return (
     <Theme>
-      {/* <Seo location={location} pageContext={pageContext} seo={seo} /> */}
+      <Seo location={location} pageContext={pageContext} seo={seo} />
       <StaticQuery
         query={`${navigationQuery}`}
         render={(data) => {

@@ -29,6 +29,8 @@ const Seo = ({ location: { pathname }, pageContext, seo }) => {
   };
 
   const url = `${basepath}${pathname}`;
+  console.log(name, basepath, title, description, keywords, type, image);
+
 
   return (
     <Helmet titleTemplate={`%s • ${name}`} defaultTitle={name}>
