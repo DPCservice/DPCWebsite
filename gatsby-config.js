@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     name: 'Design Prototype Consult LLC',
     basepath: 'https://www.dpcservices.co/',
+    siteUrl:'https://www.dpcservices.co/',
     description: 'DPC specializes in creating tailor-made products and solutions for our clients. Whether you have a concept for a consumer product or need a custom device made for your industry, we are here to help.',
     keywords: ['gatsby', 'gatsbyjs', 'gatsby starter', 'github'],
     type: 'website',
@@ -90,6 +91,6 @@ module.exports = {
 
     // (optional) Enable the following for generation of an XML sitemap
     // https://www.gatsbyjs.org/packages/gatsby-plugin-advanced-sitemap/
-    // 'gatsby-plugin-advanced-sitemap',
+    'gatsby-plugin-advanced-sitemap',
   ],
 };
