@@ -9,7 +9,6 @@ const seo = {
 };
 
 const IndexPage = (props) => {
-  
   return (
     <Layout seo={seo} {...props}>
       <Hero

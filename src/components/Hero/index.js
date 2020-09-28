@@ -231,7 +231,7 @@ const Figure = styled.figure`
 `;
 
 const Hero = ({ heroTitle, heroDescription, heroImg }) => {
-  // console.log(props);
+  
   return (
     <HeroWrapper>
       {/* <video id="background-video" autoPlay loop muted preload='auto'>

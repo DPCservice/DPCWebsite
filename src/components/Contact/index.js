@@ -2,15 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../Container';
 import * as Yup from 'yup';
-import 'yup-phone';
 import { Formik } from 'formik';
 import { Box, Button, TextField, FormHelperText } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
+import { toast } from 'react-toastify';
 
-const useStyles = makeStyles({
+const StyledTextField = withStyles({
   root: {
-    backgroundColor: '#F6F6F6',
-    borderBlockColor: '#DADCE0',
     '& label.Mui-focused': {
       color: 'var(--color-primary)',
     },
@@ -21,14 +19,36 @@ const useStyles = makeStyles({
 
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: 'var(--color-secondary)',
+        borderColor: '#b8b8b7',
+      },
+      '&:hover fieldset': {
+        borderColor: '#b8b8b7',
       },
       '&.Mui-focused fieldset': {
         borderColor: 'var(--color-primary)',
       },
     },
   },
-});
+})(TextField);
+
+const StyledButton = withStyles({
+  root: {
+    background: 'var(--color-primary)',
+    borderRadius: 40,
+    border: 0,
+    color: 'white',
+    height: 48,
+    // padding: '0 30px',
+    boxShadow: 'none',
+    '&:hover': {
+      backgroundColor: 'var(--color-secondary)',
+      boxShadow: 'none',
+    },
+  },
+  label: {
+    textTransform: 'capitalize',
+  },
+})(Button);
 
 const HeroWrapper = styled.div`
   background: var(--color-secondary);
@@ -50,10 +70,14 @@ const Inner = styled.div`
   margin: 0 auto;
   box-sizing: border-box;
   z-index: 10;
-  text-align:center;
+  text-align: center;
 
-  p{
+  p {
     font-size: 20px;
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
+
+    }
   }
 
   @media screen and (max-width: 600px) {
@@ -86,7 +110,7 @@ const Columns = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  margin-bottom:80px;
+  margin-bottom: 80px;
   /* padding: var(--spacingSmall); */
   padding: var(--spacing) 0;
   margin-top: var(--overlapHeight) !important;
@@ -239,7 +263,7 @@ const PageWrapper = styled.div`
 `;
 
 const Contact = () => {
-  const classes = useStyles();
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const encode = (data) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -256,8 +280,8 @@ const Contact = () => {
             we can do for you .
           </h1>
           <p>
-            Whether you’re looking for pricing or have questions, we’ll provide the information you need to make the
-            right decision for your business.
+            Whether you’re looking for pricing or have questions, we’ll provide the information you need to make
+            the right decision for your business.
           </p>
         </Inner>
       </HeroWrapper>
@@ -283,17 +307,32 @@ const Contact = () => {
                       .email('The e-mail address entered is invalid')
                       .max(255)
                       .required('This field is required'),
-                    phoneNumber: Yup.string().phone().required(),
+                    phoneNumber: Yup.string()
+                      .required('This field is required')
+                      .matches(phoneRegExp, 'Phone number is not valid')
+                      .min(10, 'Phone number is not valid')
+                      .max(10, 'Phone number is not valid'),
                   })}
                   onSubmit={(values, actions) => {
-                    console.log(values);
+                    
                     fetch('/', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                       body: encode({ 'form-name': 'contact-demo', ...values }),
                     })
                       .then(() => {
-                        alert('Success');
+                        toast.success(
+                          '🚀 Awesome! Your message has been successfully sent. We will contact you very soon!',
+                          {
+                            position: 'top-right',
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: false,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                          },
+                        );
                         actions.resetForm();
                       })
                       .catch(() => {
@@ -304,7 +343,7 @@ const Contact = () => {
                 >
                   {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                     <form data-netlify="true" name="contact" onSubmit={handleSubmit}>
-                      <TextField
+                      <StyledTextField
                         error={Boolean(touched.fullName && errors.fullName)}
                         fullWidth
                         helperText={touched.fullName && errors.fullName}
@@ -318,7 +357,7 @@ const Contact = () => {
                         variant="outlined"
                       />
 
-                      <TextField
+                      <StyledTextField
                         error={Boolean(touched.email && errors.email)}
                         fullWidth
                         helperText={touched.email && errors.email}
@@ -331,7 +370,7 @@ const Contact = () => {
                         value={values.email}
                         variant="outlined"
                       />
-                      <TextField
+                      <StyledTextField
                         error={Boolean(touched.phoneNumber && errors.phoneNumber)}
                         fullWidth
                         helperText={touched.phoneNumber && errors.phoneNumber}
@@ -344,7 +383,7 @@ const Contact = () => {
                         value={values.phoneNumber}
                         variant="outlined"
                       />
-                      <TextField
+                      <StyledTextField
                         fullWidth
                         label="Please enter your project details (scope,timing, budget, etc.)"
                         margin="normal"
@@ -358,15 +397,9 @@ const Contact = () => {
                         multiline
                       />
                       <Box mt={2}>
-                        <Button
-                          color="primary"
-                          disabled={isSubmitting}
-                          size="large"
-                          type="submit"
-                          variant="contained"
-                        >
+                        <StyledButton disabled={isSubmitting} size="large" type="submit" variant="contained">
                           Submit Request
-                        </Button>
+                        </StyledButton>
                         {errors.submit && (
                           <Box mt={3}>
                             <FormHelperText error>{errors.submit}</FormHelperText>

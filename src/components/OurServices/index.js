@@ -216,7 +216,7 @@ const OurServices = ({ cards,title, ctaImage, ctaTitle }) => {
               <img src={ctaImage.url} alt={ctaImage.alt} />
               <RichText render={ctaTitle} />
               <BtnWrapper>
-                <PrimaryButton href="/contact">Book Now</PrimaryButton>
+                <PrimaryButton href="https://calendly.com/dpcservices/30min">Book Now</PrimaryButton>
               </BtnWrapper>
             </div>
           </Inner>

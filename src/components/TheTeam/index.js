@@ -153,7 +153,7 @@ const PageWrapper = styled.div`
 `;
 
 const TheTeam = ({ teamMembers, sectionTitle, sectionSubTitle, companyDescription }) => {
-  console.log(teamMembers);
+
   const teamMember = teamMembers.map((member) => {
     return (
       <li>

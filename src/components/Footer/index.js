@@ -109,20 +109,21 @@ const Right = styled.ul`
   }
 `;
 
-const Footer = () => {
+const Footer = ({branding, proudlyMade, socialLinks}) => {
+  
   return (
     <Wrapper>
       <Inner>
         <Left>
-          <span>© {new Date().getFullYear()} Design Prototype Consult LLC</span>
+          <span>© {new Date().getFullYear()} {branding}</span>
         </Left>
         <Center>
           <GiTexas />
-          <div> Proudly located in Corpus Christi, Texas</div>
+          <div> {proudlyMade}</div>
         </Center>
         <Right>
           <li>
-            <a href="" target="_blank">
+            <a href={socialLinks[0].link.url} target="_blank">
               <svg width="37px" height="37px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path
                   className="soc-1"
@@ -133,7 +134,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="" target="_blank">
+            <a href={socialLinks[1].link.url} target="_blank">
               <svg
                 width="37px"
                 height="37px"

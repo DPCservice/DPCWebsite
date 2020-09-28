@@ -5,7 +5,7 @@ import { TheTeam } from '../components/TheTeam';
 import { PhotoGallery } from '../components/Gallery';
 
 const SliceZone = ({ body }) => {
-  console.log(body)
+  
   return (
     <div>
       {body.map((bodyContent, i) => {

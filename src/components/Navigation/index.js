@@ -248,14 +248,14 @@ const MainHeader = styled.header`
   }
 `;
 
-const Navigation = ({ brandImg, navLinks, path }) => {
-  console.log(path);
+const Navigation = ({ brandImg, navLinks }) => {
+  
   const [isActive, setIsActive] = useState(false);
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
   return (
-    <MainHeader className={path === '/contact/' ? 'navStatic' : null}>
+    <MainHeader >
       <Wrapper>
         <div>
           <a href="/">
@@ -263,14 +263,14 @@ const Navigation = ({ brandImg, navLinks, path }) => {
           </a>
         </div>
         <NavIcon onClick={() => setIsActive(!isActive)} className={isActive ? 'navIcon--active' : null}>
-          <div className={path === '/contact/' ? 'linksNone' : null}>
+          <div >
             <span></span>
             <span></span>
             <span></span>
           </div>
         </NavIcon>
         <Nav className={isActive ? 'nav--active' : null}>
-          <NavItems className={path === '/contact/' ? 'linksNone' : null}>
+          <NavItems >
             <NavItem>
               <Link
                 onClick={() => setIsActive(!isActive)}
@@ -330,17 +330,6 @@ const Navigation = ({ brandImg, navLinks, path }) => {
             <NavItem>
               <Navbutton href="/contact">Get A Free Quote</Navbutton>
             </NavItem>
-            {/* {items.map(({ label, to, href }) =>
-              to ? (
-                <Item key={uid(label)} to={to} isActive={to === path}>
-                  {label}
-                </Item>
-              ) : (
-                <Item key={uid(label)} as="a" href={href}>
-                  {label}
-                </Item>
-              ), 
-            )}*/}
           </NavItems>
         </Nav>
       </Wrapper>
