@@ -5,15 +5,14 @@ import { Navigation } from '../Navigation';
 import { SimpNav } from '../Navigation/SimpNav';
 import { StaticQuery, graphql } from 'gatsby';
 import { Theme } from '../Theme';
-import {Seo} from './Seo'
 
-// import { Seo } from './Seo';
+
+import { Seo } from './Seo';
 
 const Layout = ({ location, pageContext, seo, children, path }) => {
-  console.log(seo);
   return (
     <Theme>
-      <Seo location={location} pageContext={pageContext} seo={seo} />
+    <Seo location={location} pageContext={pageContext} seo={seo} />
       <StaticQuery
         query={`${navigationQuery}`}
         render={(data) => {
@@ -21,11 +20,11 @@ const Layout = ({ location, pageContext, seo, children, path }) => {
             <>
               {location.pathname === '/' && (
                 <Navigation
-                  brandImg={data.prismic.allNavigations.edges[0].node.branding_logo}
-                  navLinks={data.prismic.allNavigations.edges[0].node.navigation_links}
-                  path={path}
+                brandImg={data.prismic.allNavigations.edges[0].node.branding_logo}
+                navLinks={data.prismic.allNavigations.edges[0].node.navigation_links}
+                path={path}
                 />
-              )}
+                )}
               <main>{children}</main>
               <Footer
                 branding={data.prismic.allFooters.edges[0].node.branding}
