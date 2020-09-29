@@ -88,6 +88,14 @@ const Team = styled.div`
   .team-members {
     margin: 0 auto;
     max-width: 812px;
+    p{
+      margin-bottom:2px;
+      font-size:16px !important;
+    }
+    h5{
+      margin: 0 14px;
+      margin-bottom:4px;
+    }
 
     @media (min-width: 768px) {
       display: flex;
@@ -154,10 +162,10 @@ const PageWrapper = styled.div`
 
 const TheTeam = ({ teamMembers, sectionTitle, sectionSubTitle, companyDescription }) => {
 
-  const teamMember = teamMembers.map((member) => {
+  const teamMember = teamMembers.map((member,i) => {
     return (
-      <li>
-        <div className="avatar">
+      <li key={i}>
+        <div className="avatar" >
           <img src={member.avatar.url} alt={member.avatar.alt} />
           <RichText render={member.avatar_name} />
           <RichText render={member.position_title} />

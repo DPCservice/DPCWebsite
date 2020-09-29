@@ -29,7 +29,7 @@ const Seo = ({ location: { pathname }, pageContext, seo }) => {
   };
 
   const url = `${basepath}${pathname}`;
-  console.log(name, basepath, title, description, keywords, type, image);
+  // console.log(name, basepath, title, description, keywords, type, image);
 
 
   return (
