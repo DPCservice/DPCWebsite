@@ -76,7 +76,6 @@ const Inner = styled.div`
     font-size: 20px;
     @media screen and (max-width: 600px) {
       font-size: 16px;
-
     }
   }
 
@@ -111,7 +110,6 @@ const Columns = styled.div`
 
 const InnerWrapper = styled.div`
   margin-bottom: 80px;
-  /* padding: var(--spacingSmall); */
   padding: var(--spacing) 0;
   margin-top: var(--overlapHeight) !important;
   background: #fff;
@@ -145,10 +143,16 @@ const InnerForm = styled.div`
     h3 {
       margin-top: 20px;
     }
+    p {
+      font-size: 20px;
+    }
 
     @media screen and (max-width: 600px) {
       margin-top: 10px;
     }
+  }
+  .mailTo {
+    color:inherit;
   }
   .verticalIconList {
     margin: var(--spacingSmallMobile) 0;
@@ -280,8 +284,8 @@ const Contact = () => {
             we can do for you .
           </h1>
           <p>
-            Whether you’re looking for pricing or have questions, we’ll provide the information you need to make
-            the right decision for your business.
+            Whether you’re looking for pricing or have questions, we’ll provide the information you need to make the
+            right decision for your business.
           </p>
         </Inner>
       </HeroWrapper>
@@ -290,7 +294,7 @@ const Contact = () => {
           <InnerWrapper>
             <InnerForm>
               <div className="has-text-align-center">
-                <h3>Get your free quote</h3>
+                <h3>Fill out the form below</h3>
               </div>
               <div className="verticalIconList">
                 <Formik
@@ -314,7 +318,6 @@ const Contact = () => {
                       .max(10, 'Phone number is not valid'),
                   })}
                   onSubmit={(values, actions) => {
-                    
                     fetch('/', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -409,6 +412,12 @@ const Contact = () => {
                     </form>
                   )}
                 </Formik>
+              </div>
+              <div className="has-text-align-center">
+                <h3>or</h3>
+                <p>
+                  Email us directly at <a className='mailTo' href="mailto:info@DPCservices.co">info@DPCservices.co</a>
+                </p>
               </div>
             </InnerForm>
           </InnerWrapper>

@@ -249,7 +249,7 @@ const MainHeader = styled.header`
 `;
 
 const Navigation = ({ brandImg, navLinks }) => {
-  
+  console.log(navLinks[0].label);
   const [isActive, setIsActive] = useState(false);
   const scrollToTop = () => {
     scroll.scrollToTop();
@@ -282,7 +282,7 @@ const Navigation = ({ brandImg, navLinks }) => {
                 offset={-200}
                 duration={500}
               >
-                Why Choose Us?
+                {navLinks[0].label}
               </Link>
             </NavItem>
             <NavItem>
@@ -296,7 +296,7 @@ const Navigation = ({ brandImg, navLinks }) => {
                 offset={-150}
                 duration={500}
               >
-                How We Can Help
+                {navLinks[1].label}
               </Link>
             </NavItem>
             <NavItem>
@@ -310,7 +310,7 @@ const Navigation = ({ brandImg, navLinks }) => {
                 offset={-150}
                 duration={500}
               >
-                Our Work
+                {navLinks[2].label}
               </Link>
             </NavItem>
             <NavItem>
@@ -324,11 +324,11 @@ const Navigation = ({ brandImg, navLinks }) => {
                 offset={-150}
                 duration={500}
               >
-                About
+                {navLinks[3].label}
               </Link>
             </NavItem>
             <NavItem>
-              <Navbutton href="/contact">Get A Free Quote</Navbutton>
+              <Navbutton href="/contact">{navLinks[4].label}</Navbutton>
             </NavItem>
           </NavItems>
         </Nav>

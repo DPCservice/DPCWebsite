@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.div`
- 
+ margin-top:16px;
 `;
 
 const MainHeader = styled.header`

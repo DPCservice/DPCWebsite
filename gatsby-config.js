@@ -6,7 +6,7 @@ module.exports = {
     description: 'DPC specializes in creating tailor-made products and solutions for our clients. Whether you have a concept for a consumer product or need a custom device made for your industry, we are here to help.',
     keywords: ['gatsby', 'gatsbyjs', 'gatsby starter', 'github'],
     type: 'website',
-    image: 'https://www.dpcservices.co/ok.png',
+    image: 'https://www.dpcservices.co/android-chrome-192x192.png',
   },
   plugins: [
     {
@@ -51,13 +51,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Design Prototype Consult LLC',
+        short_name: 'DPC',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/assets/ok.png', // This path is relative to the root of the site
+        icon: 'src/assets/android-chrome-192x192.png', // This path is relative to the root of the site
       },
     },
 
@@ -93,4 +93,4 @@ module.exports = {
     // https://www.gatsbyjs.org/packages/gatsby-plugin-advanced-sitemap/
     'gatsby-plugin-advanced-sitemap',
   ],
-};
+};  

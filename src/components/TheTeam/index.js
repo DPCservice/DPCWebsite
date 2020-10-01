@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Avatar from '../../assets/avatar.png';
 import { Container } from '../Container';
 import { RichText } from 'prismic-reactjs';
 
