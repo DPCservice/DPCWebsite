@@ -13,7 +13,7 @@
   </a>
 </p>
 
-//![demo](https://raw.githubusercontent.com/DPCservice/DPCWebsite/master/src/assets/dpcservices.co.png)
+![demo](https://raw.githubusercontent.com/DPCservice/DPCWebsite/master/src/assets/dpcservices.co.png)
 
 
 ## 🛠 Installation & Set Up
