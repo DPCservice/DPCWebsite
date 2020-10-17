@@ -1,66 +1,57 @@
-# @south-paw/awesome-gatsby-starter
+<div align="center">
+  <img alt="Logo" src="https://raw.githubusercontent.com/DPCservice/DPCWebsite/blob/master/src/assets/android-chrome-192x192.png" width="100" />
+</div>
+<h1 align="center">
+  dpcservices.co - v1
+</h1>
+<p align="center">
+  The first iteration of <a href="https://dpcservices.co/" target="_blank">dpcservices.co/</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+</p>
+<p align="center">
+  <a href="https://app.netlify.com/sites/dpcservices/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/5053366c-3b76-4bb2-9db5-8ad97e19471c/deploy-status" alt="Netlify Status" />
+  </a>
+</p>
 
-👌 A starter for GatsbyJS with a preconfigured MDX, Storybook and ESLint environment
+![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
 
-[![Netlify Status][netlify-master-status-img]][netlify-master-status]
 
-> Prefer TypeScript? No worries, try [awesome-gatsby-starter-ts](https://github.com/South-Paw/awesome-gatsby-starter-ts)
+## 🛠 Installation & Set Up
 
-## Features
+1. Install the Gatsby CLI
 
-- [Gatsby MDX](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/) for creation of pages with Markdown + JSX
-- [Storybook](https://storybook.js.org/) with the Storybook Docs addon and support for components that use Gatsby components such as Link and StaticQuery
-- [styled-components](https://www.styled-components.com/) for CSS-in-JS
-- [ESLint](https://eslint.org/) with [Airbnb's config](https://www.npmjs.com/package/eslint-config-airbnb)
-- [Prettier](https://prettier.io/) integrated into ESLint
-- A few example components and pages with stories and simple site structure
+   ```sh
+   npm install -g gatsby-cli
+   ```
 
-## Getting started
+2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
 
-Install this starter (assuming you have [`gatsby-cli`](https://www.npmjs.com/package/gatsby-cli) installed) by running the following command:
+   ```sh
+   nvm install
+   ```
 
-```bash
-gatsby new your-projects-name https://github.com/South-Paw/awesome-gatsby-starter
-```
+3. Install dependencies
 
-## Development
+   ```sh
+   yarn
+   ```
 
-Install [`Node.js`](https://nodejs.org/) and [`Yarn`](https://yarnpkg.com).
+4. Start the development server
 
-Open the project directory in your CLI and run the `yarn` command to install dependencies.
+   ```sh
+   npm start
+   ```
 
-After that you can run any of following commands
+## 🚀 Building and Running for Production
 
-```bash
-# local development (localhost:8000)
-yarn start
+1. Generate a full static production build
 
-# storybook development (localhost:9000)
-yarn start:storybook
+   ```sh
+   npm run build
+   ```
 
-# run eslint on project
-yarn lint
+1. Preview the site as it will appear once deployed
 
-# build site for deployment (/public)
-yarn build
-
-# build storybook for deployment (/public/storybook)
-yarn build:storybook
-
-# local gatsby serve of /public
-yarn serve
-
-# clean build artifacts (/.cache and /public)
-yarn clean
-```
-
-## Issues and Bugs
-
-If you manage to find any, please report them [here](https://github.com/South-Paw/awesome-gatsby-starter/issues) so they can be squashed.
-
-## License
-
-MIT, see the [LICENSE](https://github.com/South-Paw/awesome-gatsby-starter/blob/master/LICENSE) file.
-
-[netlify-master-status-img]: https://api.netlify.com/api/v1/badges/f517f897-7c3d-427a-a46f-11e07daa2d96/deploy-status
-[netlify-master-status]: https://app.netlify.com/sites/awesome-gatsby-starter/deploys
+   ```sh
+   npm run serve
+   ```
