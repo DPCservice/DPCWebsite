@@ -2,10 +2,10 @@
   <img alt="Logo" src="https://raw.githubusercontent.com/DPCservice/DPCWebsite/master/src/assets/android-chrome-192x192.png" width="192" />
 </div>
 <h1 align="center">
-  dpcservices.co - v1
+  dpcservices.co
 </h1>
 <p align="center">
-  The first iteration of <a href="https://dpcservices.co/" target="_blank">dpcservices.co/</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+  The first iteration of <a href="https://dpcservices.co" target="_blank">dpcservices.co/</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/dpcservices/deploys" target="_blank">
