@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/DPCservice/DPCWebsite/blob/master/src/assets/android-chrome-192x192.png" width="100" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/DPCservice/DPCWebsite/master/src/assets/android-chrome-192x192.png" width="100" />
 </div>
 <h1 align="center">
   dpcservices.co - v1
@@ -13,7 +13,7 @@
   </a>
 </p>
 
-![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
+//![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
 
 
 ## 🛠 Installation & Set Up
