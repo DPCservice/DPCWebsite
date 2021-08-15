@@ -1,43 +1,47 @@
-import React from "react"
-import { Hero } from '../components/Hero';
-import { OurServices } from '../components/OurServices';
-import { TheTeam } from '../components/TheTeam';
-import { PhotoGallery } from '../components/Gallery';
+import React from 'react';
+import { OurServices } from './OurServices';
+import { TheTeam } from './TheTeam';
+import { PhotoGallery } from './Gallery';
+import { FAQ } from './FAQ';
 
 const SliceZone = ({ body }) => {
-  
   return (
     <div>
-      {body.map((bodyContent, i) => {
-        if (bodyContent.type === "service") {
+      {body.map((bodyContent) => {
+        if (bodyContent.type === 'service') {
           return (
             <OurServices
-              key={i}
+              key={bodyContent.id}
               cards={bodyContent.fields}
               title={bodyContent.primary.service_section_header}
               ctaImage={bodyContent.primary.service_cta_image}
               ctaTitle={bodyContent.primary.service_cta_phrase}
             />
-          )
-        } else if(bodyContent.type === 'photo_galllery_'){
-          return <PhotoGallery key= {i} images={bodyContent.fields} title={bodyContent.primary.gallery_title}/>
-        } else if(bodyContent.type ==='about'){
-          return(
-            <TheTeam 
-              key={i} 
-              teamMembers={bodyContent.fields} 
+          );
+        }
+        if (bodyContent.type === 'photo_galllery_') {
+          return (
+            <PhotoGallery key={bodyContent.id} images={bodyContent.fields} title={bodyContent.primary.gallery_title} />
+          );
+        }
+        if (bodyContent.type === 'faq_section') {
+          return <FAQ key={bodyContent.id} title={bodyContent.primary.faq_title} allFAQ={bodyContent.fields} />;
+        }
+        if (bodyContent.type === 'about') {
+          return (
+            <TheTeam
+              key={bodyContent.id}
+              teamMembers={bodyContent.fields}
               sectionTitle={bodyContent.primary.section_title}
               sectionSubTitle={bodyContent.primary.meet_the_people}
               companyDescription={bodyContent.primary.description_company_culture}
             />
-            )
+          );
         }
-        else {
-          return null
-        }
+        return null;
       })}
     </div>
-  )
-}
+  );
+};
 
-export default SliceZone
+export default SliceZone;

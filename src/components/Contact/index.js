@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from '../Container';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Box, Button, TextField, FormHelperText } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
+import { Container } from '../Container';
 
 const StyledTextField = withStyles({
   root: {

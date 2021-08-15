@@ -1,8 +1,8 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { Layout } from '../components/Layout';
 import SliceZone from '../components/sliceZone';
 import { Hero } from '../components/Hero';
-import { graphql } from 'gatsby';
 
 const seo = {
   title: 'Home',
@@ -50,6 +50,16 @@ export const query = graphql`
                 }
                 fields {
                   work_photos
+                }
+              }
+              ... on PRISMIC_Home_pageBodyFaq_section {
+                type
+                fields {
+                  faq_answer
+                  faq_question
+                }
+                primary {
+                  faq_title
                 }
               }
               ... on PRISMIC_Home_pageBodyAbout {

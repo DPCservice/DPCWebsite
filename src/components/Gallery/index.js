@@ -1,10 +1,11 @@
 import React, { useState, useCallback } from 'react';
-import { render } from 'react-dom';
-import Gallery from 'react-photo-gallery';
-import Carousel, { Modal, ModalGateway } from 'react-images';
-import { Container } from '../Container';
-import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
+import styled from 'styled-components';
+import Carousel, { Modal, ModalGateway } from 'react-images';
+import Gallery from 'react-photo-gallery';
+import { render } from 'react-dom';
+import { Container } from '../Container';
+
 const Header = styled.h2`
   margin-top: -17px;
   text-align: center;
@@ -20,8 +21,7 @@ const PageWrapper = styled.div`
     padding: var(--spacingMobile) 0;
   }
 `;
-const PhotoGallery = ({ images,title }) => {
-  
+const PhotoGallery = ({ images, title }) => {
   const photosPrismic = images.map((photo) => ({
     src: photo.work_photos.url,
     alt: photo.work_photos.alt,
@@ -47,10 +47,10 @@ const PhotoGallery = ({ images,title }) => {
       <Container wide id="our_work">
         <Header>
           <strong>
-            <RichText render={title}/>
+            <RichText render={title} />
           </strong>
         </Header>
-        <Gallery photos={photosPrismic} onClick={openLightbox} direction={'column'} />
+        <Gallery photos={photosPrismic} onClick={openLightbox} direction="column" />
         <ModalGateway>
           {viewerIsOpen ? (
             <Modal onClose={closeLightbox}>

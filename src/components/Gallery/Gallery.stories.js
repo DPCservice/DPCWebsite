@@ -6,4 +6,4 @@ export default {
   component: PhotoGallery,
 };
 
-export const Simple = () => <PhotoGallery/>;
+export const Simple = () => <PhotoGallery />;
