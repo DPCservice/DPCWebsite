@@ -14,7 +14,7 @@ const ContactPage = (props) => {
         <SimpNav
           brandImg={props.data.prismic.allNavigations.edges[0].node.branding_logo}
         />
-      <Contact />
+      <Contact socialLinks={props.data.prismic.allFooters.edges[0].node.social_links} />
     </Layout>
   );
 };
@@ -28,6 +28,20 @@ export const SimplNavQuery = graphql`
         edges {
           node {
             branding_logo
+          }
+        }
+      }
+      allFooters {
+        edges {
+          node {
+            social_links {
+              link {
+                ... on PRISMIC__ExternalLink {
+                  url
+                  _linkType
+                }
+              }
+            }
           }
         }
       }
