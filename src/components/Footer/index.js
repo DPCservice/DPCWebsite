@@ -55,10 +55,10 @@ const Center = styled.div`
   margin: 0;
   justify-content: center;
 
-  svg{
-    height:32px;
-    width:32px;
-    margin-right:8px;
+  svg {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
   }
   @media screen and (max-width: 1044px) {
     position: static;
@@ -109,13 +109,14 @@ const Right = styled.ul`
   }
 `;
 
-const Footer = ({branding, proudlyMade, socialLinks}) => {
-  
+const Footer = ({ branding, proudlyMade, socialLinks }) => {
   return (
     <Wrapper>
       <Inner>
         <Left>
-          <span>© {new Date().getFullYear()} {branding}</span>
+          <span>
+            © {new Date().getFullYear()} {branding}
+          </span>
         </Left>
         <Center>
           <GiTexas />
@@ -148,6 +149,20 @@ const Footer = ({branding, proudlyMade, socialLinks}) => {
                   d="M22.7,10.82l0,0H14.35a4.05,4.05,0,0,0-3,1.09,4.2,4.2,0,0,0-1.08,3v8.44a4.17,4.17,0,0,0,1.13,3.06,4.14,4.14,0,0,0,3,1.09h8.29a3.79,3.79,0,0,0,4.1-3.45,3.53,3.53,0,0,0,0-.65V14.94a4.14,4.14,0,0,0-1.09-3A4,4,0,0,0,22.7,10.82ZM18.55,24.39A5.27,5.27,0,1,1,23.74,19v.09A5.23,5.23,0,0,1,18.55,24.39Zm5.36-9.46h0a1.2,1.2,0,1,1,1.18-1.22v0A1.19,1.19,0,0,1,23.91,14.93Zm-2,4.2v0a3.38,3.38,0,1,1-3.36-3.4h0A3.35,3.35,0,0,1,21.91,19.13ZM37.43,19A18.84,18.84,0,0,0,18.71,0h0A18.83,18.83,0,0,0,0,19H0A18.83,18.83,0,0,0,18.66,38h.05A18.84,18.84,0,0,0,37.43,19ZM23.37,29.43a4.33,4.33,0,0,1-.72,0H14.4a5.87,5.87,0,0,1-4.25-1.62,6,6,0,0,1-1.7-4.4V14.94a5.62,5.62,0,0,1,5.24-6,4.85,4.85,0,0,1,.66,0h8.39A5.82,5.82,0,0,1,27,10.66,6,6,0,0,1,28.65,15v8.46A5.65,5.65,0,0,1,23.37,29.43Z"
                   transform="translate(0 0)"
                 ></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href={socialLinks[2].link.url} target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="37px" height="37px" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3.445 17.827c-3.684 1.684-9.401-9.43-5.8-11.308l1.053-.519 1.746 3.409-1.042.513c-1.095.587 1.185 5.04 2.305 4.497l1.032-.505 1.76 3.397-1.054.516z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href={socialLinks[3].link.url} target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="37px" height="37px" viewBox="0 0 24 24">
+                <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" />
               </svg>
             </a>
           </li>

@@ -152,7 +152,7 @@ const InnerForm = styled.div`
     }
   }
   .mailTo {
-    color:inherit;
+    color: inherit;
   }
   .verticalIconList {
     margin: var(--spacingSmallMobile) 0;
@@ -266,7 +266,7 @@ const PageWrapper = styled.div`
   }
 `;
 
-const Contact = () => {
+const Contact = ({ socialLinks }) => {
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const encode = (data) => {
     return Object.keys(data)
@@ -416,7 +416,16 @@ const Contact = () => {
               <div className="has-text-align-center">
                 <h3>or</h3>
                 <p>
-                  Email us directly at <a className='mailTo' href="mailto:info@DPCservices.co">info@DPCservices.co</a>
+                  Email us directly at{' '}
+                  <a className="mailTo" href={socialLinks[3].url}>
+                    info@DPCservices.co
+                  </a>
+                </p>
+                <p>
+                  Call us at{' '}
+                  <a href={socialLinks[2].link.url} target="_blank">
+                    361-806-7470
+                  </a>
                 </p>
               </div>
             </InnerForm>

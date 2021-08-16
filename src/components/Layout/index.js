@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Footer } from '../Footer';
 import { Navigation } from '../Navigation';
-import { SimpNav } from '../Navigation/SimpNav';
 import { StaticQuery, graphql } from 'gatsby';
 import { Theme } from '../Theme';
 
