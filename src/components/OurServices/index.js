@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { PrimaryButton } from '../Button';
 import { RichText } from 'prismic-reactjs';
 
-
 const InnerWrapper = styled.div`
   margin-bottom: 0;
   padding: var(--spacingSmall);
@@ -107,7 +106,7 @@ const Inner = styled.div`
   }
   .simpleCta {
     background: #fff;
-    border-radius:15px;
+    border-radius: 15px;
     border: 1px solid #f6f6f6;
     padding: 60px 75px;
     margin: var(--spacingSmall) 0;
@@ -175,8 +174,7 @@ const PageWrapper = styled.div`
   }
 `;
 
-const OurServices = ({ cards,title, ctaImage, ctaTitle }) => {
-
+const OurServices = ({ cards, title, ctaImage, ctaTitle }) => {
   const mappedCards = cards.map((card, i) => {
     return (
       <div className="verticalIconList__item" key={i}>
@@ -190,28 +188,13 @@ const OurServices = ({ cards,title, ctaImage, ctaTitle }) => {
   });
   return (
     <PageWrapper NoBottomPad NoTopPad>
-
       <Container wide id="our_services">
         <InnerWrapper>
           <Inner>
             <div className="has-text-align-center">
               <RichText render={title} />
             </div>
-            <div className="verticalIconList">
-              {mappedCards}
-              {/* <div className="verticalIconList__item">
-              <div></div>
-              <h5>
-                this is a test
-                <br />
-                of a bigger test
-              </h5>
-              <p>
-                I'm baby cupidatat nulla palo santo ut, nisi vexillologist pinterest thundercats roof party aute
-                fingerstache blue bottle messenger bag.
-              </p>
-            </div> */}
-            </div>
+            <div className="verticalIconList">{mappedCards}</div>
             <div className="simpleCta">
               <img src={ctaImage.url} alt={ctaImage.alt} />
               <RichText render={ctaTitle} />
@@ -223,7 +206,6 @@ const OurServices = ({ cards,title, ctaImage, ctaTitle }) => {
         </InnerWrapper>
       </Container>
     </PageWrapper>
-    
   );
 };
 

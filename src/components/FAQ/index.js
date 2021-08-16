@@ -1,7 +1,57 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
+
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
+
 import { RichText } from 'prismic-reactjs';
 import { Container } from '../Container';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    margin: ' var(--spacingSmall) 0',
+
+    '& h5': {
+      margin: 0,
+    },
+    '@media screen and (max-width: 600px)': {
+      margin: 'var(--spacingSmallMobile) 0',
+      '& h5': {
+        fontSize: '15px',
+      },
+    },
+  },
+  accordion: {
+    backgroundColor: '#F6F6F6 !important',
+    boxShadow: 'none !important',
+  },
+
+  summary: {
+    padding: '12px 24px;',
+  },
+
+  details: {
+    padding: '8px 26px 16px',
+
+    '& li': {
+      margin: '8px 0px',
+    },
+
+    '& p': {
+      maxWidth: '100%',
+      margin: 0,
+    },
+  },
+
+  heading: {
+    marginTop: 0,
+  },
+}));
 
 const PageWrapper = styled.div`
   padding: var(--spacing) 0;
@@ -13,106 +63,60 @@ const PageWrapper = styled.div`
     padding: var(--spacingMobile) 0;
   }
 `;
-const Header = styled.h2`
-  margin-top: -17px;
+const InnerWrapper = styled.div`
+  padding: var(--spacingSmall);
+  background: #f6f6f6;
+  border-radius: 15px;
+  position: relative;
+  /* margin: var(--spacingSmall) 0; */
+
+  @media screen and (max-width: 768px) {
+    padding: var(--spacingSmallTablet);
+  }
+  @media screen and (max-width: 600px) {
+    padding: var(--spacingSmallMobile);
+    margin: var(--spacingSmallMobile) 0;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 30px 20px;
+  }
+`;
+
+const Header = styled.h3`
+  margin-top: 20px;
   text-align: center;
 `;
 
-const FAQDrawer = styled.div`
-  h3 {
-    margin: 0;
-  }
-
-  .faq-drawer {
-    margin-bottom: 30px;
-  }
-
-  .faq-drawer__content-wrapper {
-    font-size: 1.25em;
-    line-height: 1.4em;
-    max-height: 0px;
-    overflow: hidden;
-    transition: 0.25s ease-in-out;
-  }
-  .faq-drawer__title {
-    border-top: #666 1px solid;
-    cursor: pointer;
-    display: block;
-    font-size: 1.25em;
-    font-weight: 700;
-    padding: 30px 0 0 0;
-    position: relative;
-    margin-bottom: 0;
-    transition: all 0.25s ease-out;
-  }
-  .faq-drawer__title::after {
-    border-style: solid;
-    border-width: 1px 1px 0 0;
-    content: ' ';
-    display: inline-block;
-    float: right;
-    height: 10px;
-    left: 2px;
-    position: relative;
-    right: 20px;
-    top: 2px;
-    transform: rotate(135deg);
-    transition: 0.35s ease-in-out;
-    vertical-align: top;
-    width: 10px;
-  }
-
-  /* OPTIONAL HOVER STATE */
-  .faq-drawer__title:hover {
-    color: #4e4b52;
-  }
-
-  .faq-drawer__trigger:checked + .faq-drawer__title + .faq-drawer__content-wrapper {
-    max-height: 350px;
-  }
-
-  .faq-drawer__trigger:checked + .faq-drawer__title::after {
-    transform: rotate(-45deg);
-    transition: 0.25s ease-in-out;
-  }
-
-  input[type='checkbox'] {
-    display: none;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .container {
-      padding: 80px;
-    }
-  }
-`;
-
 const FAQ = ({ title, allFAQ }) => {
+  const classes = useStyles();
+
   const factsAndAnswers = allFAQ.map((faq, i) => {
     return (
-      <di className="faq-drawer" key={i}>
-        <input className="faq-drawer__trigger" id="faq-drawer" type="checkbox" />
-        <label className="faq-drawer__title" for="faq-drawer">
+      <Accordion className={classes.accordion}>
+        <AccordionSummary
+          className={classes.summary}
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls={`panel${i++}a-content`}
+          id={`panel${i++}a-header`}
+        >
           <RichText render={faq.faq_question} />
-        </label>
-        <div className="faq-drawer__content-wrapper">
-          <div className="faq-drawer__content">
-            <p>
-              <RichText render={faq.faq_answer} />
-            </p>
-          </div>
-        </div>
-      </di>
+        </AccordionSummary>
+        <AccordionDetails className={classes.details}>
+          {/* <Typography>{RichText.asText(faq.faq_answer)}</Typography> */}
+
+          <RichText render={faq.faq_answer} />
+        </AccordionDetails>
+      </Accordion>
     );
   });
 
   return (
     <PageWrapper>
       <Container wide id="faq">
-        <Header>
-          <RichText render={title} />
-        </Header>
-        <FAQDrawer>{factsAndAnswers}</FAQDrawer>
+        <InnerWrapper>
+          <Header>{RichText.asText(title)}</Header>
+          <div className={classes.root}>{factsAndAnswers}</div>
+        </InnerWrapper>
       </Container>
     </PageWrapper>
   );

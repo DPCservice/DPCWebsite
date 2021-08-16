@@ -318,7 +318,7 @@ const Navigation = ({ brandImg, navLinks }) => {
                 onClick={() => setIsActive(!isActive)}
                 activeClass="active"
                 className="NavLink"
-                to="about"
+                to="faq"
                 smooth={true}
                 spy={true}
                 offset={-150}
@@ -328,7 +328,21 @@ const Navigation = ({ brandImg, navLinks }) => {
               </Link>
             </NavItem>
             <NavItem>
-              <Navbutton href="/contact">{navLinks[4].label}</Navbutton>
+              <Link
+                onClick={() => setIsActive(!isActive)}
+                activeClass="active"
+                className="NavLink"
+                to="about"
+                smooth={true}
+                spy={true}
+                offset={-150}
+                duration={500}
+              >
+                {navLinks[4].label}
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Navbutton href="/contact">{navLinks[5].label}</Navbutton>
             </NavItem>
           </NavItems>
         </Nav>
